@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+<UI>
+=======================================================
+  所有控件均有LayoutControl的Layout开头的属性
+  控件ID是用来获取控件用的符号，全局唯一不能重复，不需要获取可以不填  
+  下划线开头的变量为必须变量，其他为可选变量
+  ViewControl会附带一个LayoutControl子集，ID是ViewControl的ID+"LC"
+=======================================================
+  <LayoutControl ID = "TestLC" _OrientationType="Vertical" LayoutRect="0, 0, 600, 400" LayoutPlaceholder="0" LayoutMinPlaceholder="0" LayoutAspectRatio="0"
+                 LayoutMaxWidth="0" LayoutMaxHeight="0" LayoutInfo="TestInfo" LayoutBackColorLow = "0,1,0,1" LayoutBackColorMedium = "0,1,0,1" LayoutBackColorHigh = "0,1,0,1"></LayoutControl>
+  <SplitControl ID = "TestSC" _OrientationType="Horizontal">
+    <LeftSplit Min ="300">
+      <Panel ID = "spLeftDC" _Color="1,0,0,1" Fill="True"></Panel>
+    </LeftSplit>
+    <RightSplit Min ="400">
+      <Panel ID = "spRightDC" _Color="0,1,0,1" Fill="True"></Panel>
+    </RightSplit>
+  </SplitControl>
+  <ViewControl ID = "TestVC" LayoutType="Medium" VerticalBar="True" HorizontalBar="True">
+    <Panel ID = "spViewDC" _Color="0,0,1,1" Fill="True"></Panel>
+  </ViewControl>
+  阵列生成的子对象ID是"ID+序号"
+  <Matrix VerticalCount="8" HorizontalCount="16" MaxCount="127">
+    <Panel ID = "spMatrixDC" _Color="1,0,1,1" Fill="True"></Panel>
+  </Matrix>
+  <Button ID="TestButton" _Text ="Test" Type="NoLocalization" LayoutMaxHeight ="20" AlwaysOn="True" SelectOn="True"
+          Color="1,1,1,1" BackColor="1,1,1,1" TextAlignment="Center" FontRatio="0"/>
+  <ImageButton ID="TestImageButton" _Text ="Test" _Image ="LOGO.PNG" _ImageFormat="PNG" LayoutMaxHeight ="20" AlwaysOn="True" SelectOn="True"
+          Color="1,1,1,1" BackColor="1,1,1,1" TextAlignment="Center" FontRatio="0"/>
+  <DataCurve ID = "TestDC"></DataCurve>  
+  <Image _Path="LOGO.png" _ImageFormat="png" AspectRatio="1" Opacity="1" Offset="0.5" Click="True"></Image>
+  <KeyBoard ID = "TestDC"></KeyBoard>
+  <OLED ID = "TestOLED"></OLED>
+  <Panel ID = "TestDC" _Color="1,1,1,1" Fill="True" Click="True"></Panel>
+  <Placeholder ID = "TestPH"></Placeholder>
+  <ProgressBar ID = "UpdatePB" Color="0.54, 0.72, 0.11, 1" BackColor="0.32, 0.35, 0.39, 1" TextColor="1, 1, 1, 1"></ProgressBar>
+  <SwitchButton ID = "TestSB" _Text="Text" RadioStyle="True" Localization="True"></SwitchButton>
+  <TextEditor ID = "TestTE" _Text="Text"></TextEditor>
+  <TextLable ID = "TestTL" _Text="Text" Color="1,1,1,1" BackColor="1, 1, 1, 1" MaxHeight="28" Frame="True" Localization="True"
+              TextAlignment="Center"  FontWeight="Normal" FontStyle="Normal"></TextLable>
+  <TrackBar ID = "TestTB" _Min="0" _Max="255"></TrackBar>
+  <LayoutControl ID = "TestLC2" _OrientationType="Horizontal" >
+    <Hat ID ="TestHat" _Index ="0"></Hat>
+    <Hat ID ="TestHat1" _Index ="1"></Hat>
+    <Hat ID ="TestHat2" _Index ="2"></Hat>
+    <Hat ID ="TestHat3" _Index ="3"></Hat>
+  </LayoutControl>
+ =======================================================
+</UI>-->
+<UI>
+</UI>

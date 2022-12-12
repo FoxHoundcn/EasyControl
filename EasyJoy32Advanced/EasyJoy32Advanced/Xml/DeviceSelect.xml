@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "JoyDeviceLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <Placeholder LayoutAspectRatio="0.3"></Placeholder>
+    <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="0.5">
+      <Panel ID = "DeviceColor" _Color="1,1,1,1" Fill="true" ></Panel>
+      <Panel ID = "CurrentDevice" _Color="1,1,1,1" Fill="true" LayoutAspectRatio="0.6"></Panel>
+    </LayoutControl>
+    <Button ID="JoyDeviceIndex" _Text ="Test" Type="NoLocalization"/>
+    <Button ID="JoyDeviceUp" _Text ="▲" LayoutAspectRatio="1" Type="NoLocalization"/>
+    <Button ID="JoyDeviceDown" _Text ="▼" LayoutAspectRatio="1" Type="NoLocalization"/>
+  </LayoutControl>
+</UI>

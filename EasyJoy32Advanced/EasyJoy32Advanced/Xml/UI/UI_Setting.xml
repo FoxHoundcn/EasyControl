@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="UI_Setting"  _OrientationType="Horizontal" LayoutBackColorMedium ="0.18, 0.19, 0.22, 1">
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="20" >
+      <Panel _Color="0.25, 0.25, 0.25, 1" Fill="True"></Panel>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Vertical" >
+      <LayoutControl _OrientationType="Horizontal" LayoutMaxHeight="28" >
+        <Panel _Color="0.75, 0.35, 0.80, 1" Fill="True"></Panel>
+        <ImageButton ID="UI_Setting_Back" _Text ="Back" _Image ="back.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"  />
+      </LayoutControl>
+      <SplitControl _OrientationType="Horizontal">
+        <LeftSplit Min ="300">
+          <LayoutControl _OrientationType="Vertical" >
+            <Button ID="Settings" _Text ="Settings" LayoutMaxHeight ="28" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1"   LayoutInfo="SettingsInfo"/>
+            <Button ID="SetLocalization" _Text ="SetLocalization" LayoutMaxHeight ="28" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1"   LayoutInfo="SetLocalizationInfo"/>
+            <!--do it-->
+          </LayoutControl>
+        </LeftSplit>
+        <RightSplit Min ="900">
+          <LayoutControl ID="SettingProperty" _OrientationType="Vertical" >
+            <ViewControl ID="vcSettingProperty">
+              <!--vcSettingPropertyLC-->
+              <LayoutControl ID="SettingsList" _OrientationType="Vertical">
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="CustomNodeCount" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <TrackBar ID = "CustomNodeCountTB" _Min="1" _Max="64" LayoutPlaceholder="2.5"></TrackBar>
+                  <TextLable _Text="Copy" Color="1,1,1,1" Frame="True" LayoutPlaceholder="0.5"></TextLable>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="AutoSaveTime" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <TrackBar ID = "AutoSaveTimeTB" _Min="1" _Max="10" LayoutPlaceholder="2.5"></TrackBar>
+                  <TextLable _Text="Minute" Color="1,1,1,1" Frame="True" LayoutPlaceholder="0.5"></TextLable>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="AutoSaveCount" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <TrackBar ID = "AutoSaveCountTB" _Min="1" _Max="10" LayoutPlaceholder="2.5"></TrackBar>
+                  <TextLable _Text="Copy" Color="1,1,1,1" Frame="True" LayoutPlaceholder="0.5"></TextLable>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="LedOnDefault" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="3">
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                      <Placeholder LayoutAspectRatio="0.5"></Placeholder>
+                      <SwitchButton ID = "LedOnDefaultSB" _Text="LedOnDefault" Localization="True" ></SwitchButton>
+                    </LayoutControl>
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                  </LayoutControl>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="AutoSaveOn" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="3">
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                      <Placeholder LayoutAspectRatio="0.5"></Placeholder>
+                      <SwitchButton ID = "AutoSaveOnSB" _Text="AutoSaveOn" Localization="True" ></SwitchButton>
+                    </LayoutControl>
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                  </LayoutControl>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="AutoLogin" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="3">
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                      <Placeholder LayoutAspectRatio="0.5"></Placeholder>
+                      <SwitchButton ID = "AutoLoginSB" _Text="AutoLogin" Localization="True" ></SwitchButton>
+                    </LayoutControl>
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                  </LayoutControl>
+                </LayoutControl>
+                <LayoutControl _OrientationType="Horizontal">
+                  <TextLable _Text="DebugMode" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                  <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="3">
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                      <Placeholder LayoutAspectRatio="0.5"></Placeholder>
+                      <SwitchButton ID = "DebugModeSB" _Text="EffectiveAfterRestart" Localization="True" ></SwitchButton>
+                    </LayoutControl>
+                    <Placeholder LayoutPlaceholder="1"></Placeholder>
+                  </LayoutControl>
+                </LayoutControl>
+              </LayoutControl>
+              <LayoutControl ID="LocalizationList" _OrientationType="Vertical">
+              </LayoutControl>
+            </ViewControl>
+          </LayoutControl>
+        </RightSplit>
+      </SplitControl>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="10" >
+      <Panel _Color="0.75, 0.35, 0.80, 1" Fill="True"></Panel>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

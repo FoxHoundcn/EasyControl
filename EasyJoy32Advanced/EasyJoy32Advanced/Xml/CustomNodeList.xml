@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID="CustomNodeListControl" _OrientationType="Vertical" LayoutBackColorLow = "0.18, 0.19, 0.22, 1" >
+    <ViewControl ID="vcCustomNodeList">
+      <!--vcCustomNodeListLC-->
+    </ViewControl>
+  </LayoutControl>
+</UI>

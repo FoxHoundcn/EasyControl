@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl _OrientationType="Horizontal" LayoutBackColorMedium = "0.18, 0.19, 0.22, 1">
+    <Button ID="SaveSet" _Text ="S" TextAlignment="Center" LayoutAspectRatio="1" Type="NoLocalization"   LayoutInfo="SaveSetInfo"/>
+    <Button ID="LoadSet" _Text ="L" TextAlignment="Center" LayoutAspectRatio="1" Type="NoLocalization"   LayoutInfo="LoadSetInfo"/>
+    <Button ID="SavingModeBtn" _Text ="SavingMode" TextAlignment="Center" LayoutPlaceholder="3" AlwaysOn="True" LayoutInfo="SavingModeInfo"/>
+    <ImageButton ID="ScreneAlign" _Text ="ScreneAlign" _Image ="screen.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1" LayoutInfo="ScreneAlignInfo" />
+    <ImageButton ID="PluginDebug" _Text ="Debug" _Image ="show.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1" LayoutInfo="PluginDebugInfo" />
+    <LayoutControl _OrientationType="Vertical" >
+      <Panel ID = "ColorFPS" _Color="1,1,1,1" Fill="True" LayoutPlaceholder="0.25"></Panel>
+      <TextLable ID="FPS" _Text="0" Color="1,1,1,1" Frame="True"  TextAlignment="Center" Localization="False" LayoutInfo="FPSInfo"></TextLable>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

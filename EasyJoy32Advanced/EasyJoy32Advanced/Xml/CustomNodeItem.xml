@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "CustomNodeItemLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <Placeholder LayoutAspectRatio="0.3"></Placeholder>
+    <Panel ID = "CustomNodeType" _Color="0.94, 0.69, 0.09, 1" Fill="true" LayoutAspectRatio="0.5"></Panel>
+    <Button ID="CustomNodeButton" _Text ="Test" Type="NoLocalization" TextAlignment="Center" LayoutPlaceholder="4" />
+    <ImageButton ID="CustomNodePlus" _Text ="Plus" _Image ="plus.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"/>
+  </LayoutControl>
+</UI>

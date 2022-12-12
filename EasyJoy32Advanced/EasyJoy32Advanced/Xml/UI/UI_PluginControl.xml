@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="UI_PluginControl"  _OrientationType="Horizontal" LayoutBackColorMedium ="0.18, 0.19, 0.22, 1">
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="20" >
+      <Panel _Color="0.25, 0.25, 0.25, 1" Fill="True"></Panel>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Vertical" >
+      <LayoutControl _OrientationType="Horizontal" LayoutMaxHeight="28" >
+        <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True"></Panel>
+        <ImageButton ID="UI_PluginControl_Back" _Text ="Back" _Image ="back.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"  />
+      </LayoutControl>
+      <SplitControl _OrientationType="Horizontal">
+        <LeftSplit Min ="300">
+          <!--******PluginMain******-->
+          <LayoutControl ID ="PluginMain"  _OrientationType="Vertical" >
+            <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="28">
+              <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+              <TextLable _Text="PluginList" Color="1,1,1,1" Frame="True"  TextAlignment="Center" ></TextLable>
+            </LayoutControl>
+            <!--PluginList-->
+            <LayoutControl ID="PluginListControl" _OrientationType="Vertical">
+              <ViewControl ID="PluginList" VerticalBar="False">
+                <!--PluginListLC-->
+              </ViewControl>
+            </LayoutControl>
+          </LayoutControl>
+        </LeftSplit>
+        <RightSplit Min ="900">
+          <LayoutControl ID="PluginControlMain" _OrientationType="Horizontal">
+            <!--PluginNodeList-->
+            <LayoutControl ID="PluginNodeList" _OrientationType="Vertical" LayoutMaxWidth="300" >
+              <ViewControl ID="vcPluginNodeList">
+                <!--vcPluginNodeListLC-->
+              </ViewControl>
+            </LayoutControl>
+            <LayoutControl ID="PluginControlProperty" _OrientationType="Vertical">
+              <ViewControl ID="vcPluginPropertyList">
+                <!--vcPluginPropertyListLC-->
+              </ViewControl>
+            </LayoutControl>
+          </LayoutControl>
+        </RightSplit>
+      </SplitControl>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="10" >
+      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True"></Panel>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

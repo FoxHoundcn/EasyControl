@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "PluginNodeLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="2" >
+      <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+      <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="2" LayoutPlaceholder="2">
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+        <SwitchButton ID="PluginNodeOpen" _Text ="" Localization="false" LayoutAspectRatio="2" LayoutPlaceholder="2" LayoutInfo="PluginNodeShowInfo"/>
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+      </LayoutControl>
+    </LayoutControl>
+    <Button ID="PluginNodeIndex" _Text ="Test" TextAlignment="Leading" Type="NoLocalization"  LayoutInfo="PluginNodeIndexInfo"/>
+    <Placeholder LayoutPlaceholder="0.05"></Placeholder>
+  </LayoutControl>
+</UI>

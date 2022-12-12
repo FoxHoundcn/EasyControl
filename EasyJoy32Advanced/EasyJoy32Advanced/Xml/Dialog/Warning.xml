@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="WarningUI"  _OrientationType="Vertical" >
+    <Placeholder ></Placeholder>
+    <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="128" >
+      <Placeholder ></Placeholder>
+      <LayoutControl  _OrientationType="Vertical" LayoutMaxWidth="400" LayoutBackColorMedium = "0.18, 0.19, 0.22, 1">
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="8">
+          <Panel _Color="0.93, 0.31, 0.06, 1" Fill="True" LayoutAspectRatio="4"></Panel>
+          <Panel _Color="0.75, 0.35, 0.80, 1" Fill="True"></Panel>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal">
+          <TextLable ID = "WarningInfo" _Text=""  TextAlignment="Center" MaxHeight="24" BackColor="0.16, 0.63, 0.83, 0.1" Frame="False"></TextLable>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal"  LayoutMaxHeight="32">
+          <Panel _Color="0.93, 0.31, 0.06, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+          <Button ID="WarningButton" _Text ="OK" />
+        </LayoutControl>
+      </LayoutControl>
+      <Placeholder ></Placeholder>
+    </LayoutControl>
+    <Placeholder ></Placeholder>
+  </LayoutControl>
+</UI>

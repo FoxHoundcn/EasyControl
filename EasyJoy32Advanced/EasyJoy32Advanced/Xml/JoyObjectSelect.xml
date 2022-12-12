@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "JoyObjectLC" _OrientationType="Horizontal" LayoutMaxHeight ="36" >
+    <Placeholder LayoutAspectRatio="0.3"></Placeholder>
+    <Panel ID = "Link" _Color="1,1,1,1" Fill="true" LayoutAspectRatio="0.5"></Panel>
+    <LayoutControl _OrientationType="Vertical">
+      <Button ID="JoyObjectIndex" _Text ="Test" Type="NoLocalization" TextAlignment="Center" LayoutPlaceholder="4" />
+      <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="1" LayoutInfo="CommunicationStripInfo">
+        <Matrix VerticalCount="1" HorizontalCount="20" MaxCount="20">
+          <Panel ID = "msg" _Color="1,0,1,1" Fill="true" LayoutAspectRatio="1"></Panel>
+        </Matrix>
+      </LayoutControl>
+    </LayoutControl>
+    <ImageButton ID="Setting" _Text ="Setting" _Image ="property.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1" LayoutInfo="SettingInfo"/>
+    <ImageButton ID="ReBoot" _Text ="ReBoot" _Image ="delete.PNG" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1" LayoutInfo="ReBootInfo"/>
+  </LayoutControl>
+</UI>

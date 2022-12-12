@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="LoginUI"  _OrientationType="Vertical" >
+    <Placeholder ></Placeholder>
+    <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="200"  >
+      <Placeholder ></Placeholder>
+    </LayoutControl>
+    <LayoutControl  _OrientationType="Horizontal" >
+      <Placeholder ></Placeholder>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

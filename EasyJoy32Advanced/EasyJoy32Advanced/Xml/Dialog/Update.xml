@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="UpdateUI"  _OrientationType="Vertical" >
+    <Placeholder ></Placeholder>
+    <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="160" >
+      <Placeholder ></Placeholder>
+      <LayoutControl  _OrientationType="Vertical" LayoutMaxWidth="400" LayoutBackColorMedium = "0.18, 0.19, 0.22, 1">
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="8">
+          <Panel _Color="0.93, 0.31, 0.06, 1" Fill="True" LayoutAspectRatio="4"></Panel>
+          <Panel _Color="0.75, 0.35, 0.80, 1" Fill="True"></Panel>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal" >
+          <TextLable ID = "UpdateInfo" _Text=""  TextAlignment="Center" MaxHeight="40" BackColor="0.16, 0.63, 0.83, 0.1" Frame="False"></TextLable>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="32">
+          <ProgressBar ID = "UpdatePB" Color="0.54, 0.72, 0.11, 1" BackColor="0.32, 0.35, 0.39, 1" TextColor="1, 1, 1, 1"></ProgressBar>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal"  LayoutMaxHeight="32">
+          <Button ID="CancelButton" _Text ="Cancel" AlwaysOn="True"  Color="0.54, 0.72, 0.11, 1"  />
+          <Button ID="UpdateButton" _Text ="OK" AlwaysOn="True"  Color="0.93, 0.31, 0.06, 1"  />
+        </LayoutControl>
+      </LayoutControl>
+      <Placeholder ></Placeholder>
+    </LayoutControl>
+    <Placeholder ></Placeholder>
+  </LayoutControl>
+</UI>

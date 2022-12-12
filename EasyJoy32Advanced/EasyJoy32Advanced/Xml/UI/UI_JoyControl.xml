@@ -1,0 +1,1070 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="UI_JoyControl"  _OrientationType="Horizontal" LayoutBackColorMedium ="0.18, 0.19, 0.22, 1">
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="20" >
+      <Panel _Color="0.25, 0.25, 0.25, 1" Fill="True"></Panel>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Vertical" >
+      <LayoutControl _OrientationType="Horizontal" LayoutMaxHeight="28" >
+        <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True"></Panel>
+        <ImageButton ID="UI_JoyControl_Back" _Text ="Back" _Image ="back.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"  />
+      </LayoutControl>
+      <SplitControl _OrientationType="Horizontal">
+        <LeftSplit Min ="300">
+          <!--******JoyObjectMain******-->
+          <LayoutControl _OrientationType="Vertical" >
+            <LayoutControl ID ="JoyObjectMain"  _OrientationType="Vertical">
+              <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="28">
+                <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                <TextLable _Text="EjoyList" Color="1,1,1,1" Frame="True"  TextAlignment="Center" ></TextLable>
+              </LayoutControl>
+              <Button ID="Refresh" _Text ="Refresh" LayoutMaxHeight ="28" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1"   LayoutInfo="RefreshInfo"/>
+              <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="36">
+                <ImageButton ID="Back" _Text ="Back" _Image ="back.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"   LayoutInfo="ReturnJoyListInfo"/>
+                <LayoutControl _OrientationType="Vertical">
+                  <Button ID="JoyObjectSelect" _Text ="……" Type="NoLocalization" TextAlignment="Center" LayoutPlaceholder="4" />
+                  <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="1" LayoutInfo="CommunicationStripInfo">
+                    <Matrix VerticalCount="1" HorizontalCount="30" MaxCount="30">
+                      <Panel ID = "msgPublic" _Color="1,0,1,1" Fill="True" LayoutAspectRatio="1"></Panel>
+                    </Matrix>
+                  </LayoutControl>
+                </LayoutControl>
+              </LayoutControl>
+              <LayoutControl ID="JoyFunction"  _OrientationType="Horizontal" LayoutMaxHeight="36">
+                <ImageButton ID="JoySetData" _Text ="JoySetData" _Image ="up.png" _ImageFormat="PNG"  AspectRatio="1"   LayoutInfo="UpdateJoySettingInfo"/>
+                <ImageButton ID="OpenSetData" _Text ="OpenSetData" _Image ="open.png" _ImageFormat="PNG"  AspectRatio="1"   LayoutInfo="OpenJoySettingInfo"/>
+                <ImageButton ID="SaveSetData" _Text ="SaveSetData" _Image ="save.png" _ImageFormat="PNG"  AspectRatio="1"   LayoutInfo="SaveJoySettingInfo"/>
+                <ImageButton ID="JoyLicense" _Text ="JoyLicense" _Image ="accept.png" _ImageFormat="PNG" AspectRatio="1"   LayoutInfo="LicenseJoySettingInfo"/>
+              </LayoutControl>
+              <LayoutControl ID="TypeSwitchControl"  _OrientationType="Horizontal" LayoutMaxHeight="28">
+                <Button ID="JoyDeviceSelect" _Text ="JoyDeviceList" LayoutInfo="DeviceSelectInfo"/>
+                <Button ID="JoyCustomSelect" _Text ="JoyCustomList" LayoutInfo="CustomSelectInfo"/>
+                <Button ID="FontLibrarySelect" _Text ="FontLibraryList" LayoutInfo="FontLibraryInfo"/>
+              </LayoutControl>
+              <!--JoyObjectList-->
+              <LayoutControl ID="JoyObjectControl" _OrientationType="Vertical">
+                <ViewControl ID="JoyObjectList" VerticalBar="False">
+                  <!--JoyObjectListLC-->
+                </ViewControl>
+              </LayoutControl>
+              <!--DeviceList-->
+              <LayoutControl ID="DeviceControl" _OrientationType="Vertical">
+                <ViewControl ID="DeviceList" VerticalBar="False">
+                  <!--DeviceListLC-->
+                </ViewControl>
+              </LayoutControl>
+              <!--CustomList-->
+              <LayoutControl ID="CustomControl" _OrientationType="Vertical">
+                <ViewControl ID="CustomList" VerticalBar="False">
+                  <!--DeviceListLC-->
+                </ViewControl>
+              </LayoutControl>
+              <!--FontList-->
+              <LayoutControl ID="FontControl" _OrientationType="Vertical">
+                <ViewControl ID="FontList" VerticalBar="False">
+                  <!--FontListLC-->
+                </ViewControl>
+              </LayoutControl>
+            </LayoutControl>
+          </LayoutControl>
+        </LeftSplit>
+        <RightSplit Min ="900">
+          <LayoutControl ID="EjoyControlMain" _OrientationType="Horizontal">
+            <!--DeviceTypeControl-->
+            <LayoutControl ID="SelectTypeControl" _OrientationType="Vertical" LayoutMaxWidth="220" >
+              <LayoutControl ID="DeviceTypeControl" _OrientationType="Vertical" LayoutMaxWidth="220" >
+                <ViewControl ID="vcDeviceType">
+                  <!--vcDeviceTypeLC-->
+                </ViewControl>
+              </LayoutControl>
+              <LayoutControl ID="CustomTypeControl" _OrientationType="Vertical" LayoutMaxWidth="220" >
+                <ViewControl ID="vcCustomType">
+                  <!--vcDeviceTypeLC-->
+                </ViewControl>
+              </LayoutControl>
+              <LayoutControl ID="FontTypeControl" _OrientationType="Vertical" LayoutMaxWidth="220" >
+                <ViewControl ID="vcFontType">
+                  <!--vcDeviceTypeLC-->
+                </ViewControl>
+              </LayoutControl>
+            </LayoutControl>
+            <LayoutControl ID="EjoyControlControl" _OrientationType="Vertical">
+              <!--******InputControlPanel******-->
+              <ViewControl ID="vcInputControl">
+                <!--vcInputControlLC-->
+                <!--JoyDataControl-->
+                <LayoutControl ID="JoyDataControl" _OrientationType="Vertical" LayoutPlaceholder="4" LayoutAspectRatio="0.182">
+                  <!--JoyDataTip-->
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                    <TextLable _Text="JoyData" Color="1,1,1,1" BackColor ="0.94, 0.69, 0.09, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                  </LayoutControl>
+                  <!--JoyName-->
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="JoyName" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                    <TextEditor ID = "JoyNameTE" _Text="JoyName" LayoutPlaceholder="3"></TextEditor>
+                    <TextLable ID="EjoyVersion" _Text="0.0.00" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False"></TextLable>
+                  </LayoutControl>
+                  <!--Joy_VID_PID-->
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="JoyVID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing" ></TextLable>
+                    <TextEditor ID = "JoyVIDTE" _Text="VID" LayoutInfo="JoyVIDInfo"></TextEditor>
+                    <TextLable _Text="JoyPID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing" ></TextLable>
+                    <TextEditor ID = "JoyPIDTE" _Text="PID" LayoutInfo="JoyPIDInfo"></TextEditor>
+                  </LayoutControl>
+                  <!--McuID-->
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="MucID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                    <TextLable ID="ShowMucID" _Text="000000000000000000000000" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False" LayoutPlaceholder="4"></TextLable>
+                  </LayoutControl>
+                </LayoutControl>
+                <!--外设数量-->
+                <LayoutControl ID="ParameterControl" _OrientationType="Vertical" LayoutPlaceholder="5" LayoutAspectRatio="0.227">
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                    <TextLable _Text="ParameterTL" Color="1,1,1,1" BackColor ="0.94, 0.69, 0.09, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                  </LayoutControl>
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="maxAdcTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                    <TrackBar ID = "maxAdcTB" _Min="0" _Max="10" LayoutPlaceholder="1.2"></TrackBar>
+                  </LayoutControl>
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="maxHallTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                    <TrackBar ID = "maxHallTB" _Min="0" _Max="4" LayoutPlaceholder="1.2"></TrackBar>
+                  </LayoutControl>
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="maxPwmTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                    <TrackBar ID = "maxPwmTB" _Min="0" _Max="8" LayoutPlaceholder="1.2"></TrackBar>
+                  </LayoutControl>
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="maxPinTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                    <TrackBar ID = "maxPinTB" _Min="0" _Max="144" LayoutPlaceholder="1.2"></TrackBar>
+                  </LayoutControl>
+                </LayoutControl>
+                <!--电源管理-->
+                <LayoutControl ID="PowerControl" _OrientationType="Vertical" LayoutPlaceholder="2" LayoutAspectRatio="0.091">
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                    <TextLable _Text="PowerTL" Color="1,1,1,1" BackColor ="0.94, 0.69, 0.09, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                  </LayoutControl>
+                  <LayoutControl _OrientationType="Vertical" >
+                    <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                      <Placeholder LayoutAspectRatio="1"></Placeholder>
+                      <SwitchButton ID = "usbPowerSwitch" _Text="usbPower" RadioStyle="True"></SwitchButton>
+                    </LayoutControl>
+                    <Placeholder LayoutPlaceholder="2"></Placeholder>
+                  </LayoutControl>
+                </LayoutControl>
+                <!--******DeviceControlControl******-->
+                <LayoutControl ID="DeviceControlControl" _OrientationType="Vertical">
+                  <!--************************  Input  ************************-->
+                  <LayoutControl ID="PinControl" _OrientationType="Vertical" LayoutPlaceholder="12" LayoutAspectRatio="0.545">
+                    <!--PinTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="PinTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--ChipSwitch-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "hc165Switch" _Text="HC165" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "cd4021Switch" _Text="CD4021" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--PinMatrix-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="9" >
+                      <Matrix VerticalCount="9" HorizontalCount="16">
+                        <LayoutControl _OrientationType="Vertical">
+                          <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="0.2" >
+                            <Panel ID="PinClick"  _Color="1,1,1,1" Fill="True" LayoutAspectRatio="3" LayoutInfo="PinStateInfo"></Panel>
+                          </LayoutControl>
+                          <Button ID="PinButton" _Text ="" Type="NoLocalization"  LayoutInfo="PinSelectInfo"></Button>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--PinSwitch-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "ReversalSwitch" _Text="ReversalSwitch" ></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="BandControl" _OrientationType="Vertical" LayoutPlaceholder="2"  LayoutAspectRatio="0.091">
+                    <!--BandTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable ID="BandTip" _Text="BandTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--BandTrackBar-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TrackBar ID = "BandTB" _Min="2" _Max="20" ></TrackBar>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="AdcControl" _OrientationType="Vertical" LayoutPlaceholder="4"  LayoutAspectRatio="0.182">
+                    <!--AdcTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="AdcTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--AdcMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" LayoutMaxHeight="28"  LayoutInfo="AdcSelectInfo">
+                      <Matrix  HorizontalCount="10" >
+                        <Button ID="AdcButton" _Text ="" Type="NoLocalization" ></Button>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--AdcFilter-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="2">
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <TextLable _Text="AdcCCTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                        <TrackBar ID = "AdcCCTB" _Min="0" _Max="15" ></TrackBar>
+                        <TextLable _Text="AdcCYTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                        <TrackBar ID = "AdcCYTB" _Min="0" _Max="15" ></TrackBar>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <TextLable _Text="AdcPCTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" ></TextLable>
+                        <TrackBar ID = "AdcPCTB" _Min="0" _Max="255" LayoutPlaceholder="3"></TrackBar>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="HellControl" _OrientationType="Vertical" LayoutPlaceholder="2"  LayoutAspectRatio="0.091">
+                    <!--HellTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="HellTL" Color="1,1,1,1"  BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--HellMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" LayoutInfo="HellSelectInfo">
+                      <Matrix  HorizontalCount="4" >
+                        <Button ID="HellButton" _Text ="" Type="NoLocalization" ></Button>
+                      </Matrix>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <!--************************  Output  ************************-->
+                  <LayoutControl ID="ButtonControl" _OrientationType="Vertical" LayoutPlaceholder="25"  LayoutAspectRatio="1.136">
+                    <!--ButtonTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="ButtonTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--ButtonMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8" LayoutInfo="ButtonSelectInfo">
+                      <Matrix VerticalCount="8" HorizontalCount="16" >
+                        <LayoutControl _OrientationType="Vertical" >
+                          <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="0.2" >
+                            <Panel ID="ButtonJoyS" _Color="1,1,1,1" Fill="True" LayoutAspectRatio="1"></Panel>
+                            <Panel ID="ButtonKeyB" _Color="1,1,1,1" Fill="True" LayoutAspectRatio="1"></Panel>
+                          </LayoutControl>
+                          <Button ID="ButtonButton" _Text ="" Type="NoLocalization" ></Button>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--ButtonOutputTypeSwitch-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "JoyStickSwitch" _Text="JoyStickSwitch" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "KeyBoardSwitch" _Text="KeyBoardSwitch" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--ButtonSwitch-->
+                    <LayoutControl ID="OutTurnSwitchLC" _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "OutTurnSwitch" _Text="OutTurnSwitch" ></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--ButtonKeyBoard-->
+                    <LayoutControl  ID = "KeyBoardControl" _OrientationType="Vertical" LayoutPlaceholder="7" LayoutAspectRatio="0.318">
+                      <!--ButtonTip-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                        <TextLable _Text="KeyBoardTL" Color="1,1,1,1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="6">
+                        <KeyBoard ID = "KeyBoard"></KeyBoard>
+                      </LayoutControl>
+                    </LayoutControl>
+                    <!--ButtonKeyBoardFN-->
+                    <LayoutControl  ID = "KeyFNControl" _OrientationType="Vertical" LayoutPlaceholder="7" LayoutAspectRatio="0.318">
+                      <!--ButtonTip-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                        <TextLable _Text="KeyFNTL" Color="1,1,1,1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="6">
+                        <KeyBoard ID = "KeyFN"></KeyBoard>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="EncodeTypeControl" _OrientationType="Vertical" LayoutPlaceholder="2" LayoutAspectRatio="0.091">
+                    <!--EncodeTypeConsoleTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="EncodeTypeTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--EncodeTypeConsole-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "Step" _Text="Step" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "TwoStep" _Text="TwoStep" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "FourStep" _Text="FourStep" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="SoftDataControl" _OrientationType="Vertical" LayoutPlaceholder="4"  LayoutAspectRatio="0.182">
+                    <!--SoftDataTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="SoftDataTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--SoftDataMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="3">
+                      <Matrix VerticalCount="3" HorizontalCount="16" >
+                        <LayoutControl _OrientationType="Vertical" >
+                          <Button ID="SoftDataButton" _Text ="" Type="NoLocalization" ></Button>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="PulseControl" _OrientationType="Vertical" LayoutPlaceholder="2"  LayoutAspectRatio="0.091">
+                    <!--PulseTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="PulseTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--PulseTrackBar-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TrackBar ID = "PulseTB" _Min="0" _Max="255" ></TrackBar>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="MouseSpeedControl" _OrientationType="Vertical" LayoutPlaceholder="2"  LayoutAspectRatio="0.091">
+                    <!--PulseTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="MouseSpeedTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--PulseTrackBar-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TrackBar ID = "MouseSpeedTB" _Min="0" _Max="127" ></TrackBar>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="PercentageControl" _OrientationType="Vertical" LayoutPlaceholder="2"  LayoutAspectRatio="0.091">
+                    <!--PulseTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="PercentageTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--PulseTrackBar-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TrackBar ID = "PercentageTB" _Min="0" _Max="255" ></TrackBar>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="AxisControl" _OrientationType="Vertical" LayoutPlaceholder="19"  LayoutAspectRatio="0.864">
+                    <!--AxisIDTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FormatTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--校准选择-->
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="2">
+                      <Matrix VerticalCount="2" HorizontalCount="10" >
+                        <Button ID="FormatButton" _Text ="" Type="NoLocalization" ></Button>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--AxisDataCurve-->
+                    <DataCurve ID="AxisDataCurve" LayoutPlaceholder="11"></DataCurve>
+                    <!--AxisValueSwitch-->
+                    <LayoutControl ID ="AxisSwitchControl"  _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "AxisReverseSwitch" _Text="AxisReverseSwitch" ></SwitchButton>
+                        <SwitchButton ID = "AxisCalibrationSwitch" _Text="AxisCalibrationSwitch" ></SwitchButton>
+                        <SwitchButton ID = "AxisAutoRangeSwitch" _Text="AxisAutoRangeSwitch" ></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--Axis Value Max Mid Min-->
+                    <LayoutControl ID ="CalibrationControl" _OrientationType="Vertical" LayoutPlaceholder="4">
+                      <!--Shift-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Placeholder LayoutPlaceholder="1.8"></Placeholder>
+                        <TextLable _Text="ShiftTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.2"></TextLable>
+                        <TrackBar ID = "ShiftTB" _Min="0" _Max="7" LayoutPlaceholder="3"></TrackBar>
+                        <TextLable _Text="ShiftUnit" Color="1,1,1,1"  Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="2"></TextLable>
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      </LayoutControl>
+                      <!--AxisMax-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Button ID="AxisMaxValue" _Text ="AxisMaxValue " BackColor ="0.93, 0.31, 0.06, 1" LayoutPlaceholder="1.8"></Button>
+                        <TextEditor ID = "AxisMaxTE" _Text="0" LayoutPlaceholder="1.2"></TextEditor>
+                        <TrackBar ID = "AxisMaxTB" _Min="0" _Max="4095" LayoutPlaceholder="3"></TrackBar>
+                        <TextLable _Text="AxisMaxZoneTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "AxisMaxZoneTB" _Min="0" _Max="50" LayoutPlaceholder="2"></TrackBar>
+                      </LayoutControl>
+                      <!--AxisMid-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Button ID="AxisMidValue" _Text ="AxisMidValue " BackColor ="0.16, 0.63, 0.83, 1" LayoutPlaceholder="1.8"></Button>
+                        <TextEditor ID = "AxisMidTE" _Text="0" LayoutPlaceholder="1.2"></TextEditor>
+                        <TrackBar ID = "AxisMidTB" _Min="0" _Max="4095" LayoutPlaceholder="3"></TrackBar>
+                        <TextLable _Text="AxisMidZoneTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "AxisMidZoneTB" _Min="0" _Max="50" LayoutPlaceholder="2"></TrackBar>
+                      </LayoutControl>
+                      <!--AxisMin-->
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Button ID="AxisMinValue" _Text ="AxisMinValue " BackColor ="0.54, 0.72, 0.11, 1" LayoutPlaceholder="1.8"></Button>
+                        <TextEditor ID = "AxisMinTE" _Text="0" LayoutPlaceholder="1.2"></TextEditor>
+                        <TrackBar ID = "AxisMinTB" _Min="0" _Max="4095" LayoutPlaceholder="3"></TrackBar>
+                        <TextLable _Text="AxisMinZoneTL" Color="1,1,1,1"  Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "AxisMinZoneTB" _Min="0" _Max="50" LayoutPlaceholder="2"></TrackBar>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID ="AxisOutControl" _OrientationType="Vertical" LayoutPlaceholder="4"  LayoutAspectRatio="0.182">
+                    <!--AxisTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="AxisTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--AxisMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Matrix  HorizontalCount="8" >
+                        <Button ID="AxisButton" _Text ="" Type="NoLocalization" ></Button>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--AxisIDTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="AxisIDTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--AxisID-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Button ID="AxisID0" _Text ="axisID_X " ></Button>
+                      <Button ID="AxisID1" _Text ="axisID_Y " ></Button>
+                      <Button ID="AxisID2" _Text ="axisID_Z " ></Button>
+                      <Button ID="AxisID3" _Text ="axisID_Rx " ></Button>
+                      <Button ID="AxisID4" _Text ="axisID_Ry " ></Button>
+                      <Button ID="AxisID5" _Text ="axisID_Rz " ></Button>
+                      <Button ID="AxisID6" _Text ="axisID_Slider " ></Button>
+                      <Button ID="AxisID7" _Text ="axisID_Dial " ></Button>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="HatControl" _OrientationType="Vertical" LayoutPlaceholder="6"  LayoutAspectRatio="0.273">
+                    <!--HatTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="HatTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="5">
+                      <Hat ID="0Hat" _Index ="0"  LayoutAspectRatio="1"></Hat>
+                      <Hat ID="1Hat" _Index ="1"  LayoutAspectRatio="1"></Hat>
+                      <Hat ID="2Hat" _Index ="2"  LayoutAspectRatio="1"></Hat>
+                      <Hat ID="3Hat" _Index ="3"  LayoutAspectRatio="1"></Hat>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="PwmControl" _OrientationType="Vertical" LayoutPlaceholder="3"  LayoutAspectRatio="0.136">
+                    <!--PwmTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="PwmTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--PwmMatrix-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Matrix  HorizontalCount="8" >
+                        <Button ID="PwmButton" _Text ="" Type="NoLocalization" ></Button>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--PwmTurnSwitch-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "PwmTurnSwitch" _Text="PwmTurnSwitch" ></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--ButtonSwitch-->
+                  </LayoutControl>
+                  <LayoutControl ID="LedControl" _OrientationType="Vertical" LayoutPlaceholder="18"  LayoutAspectRatio="0.818">
+                    <!--LedTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="LedTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--LedSwitch-->
+                    <LayoutControl ID="LedSwitchControl" _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "LedOnSwitch" _Text="LedOnSwitch" ></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--LedControlTypeA-->
+                    <LayoutControl ID="LedControlTypeAControl" _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "LedNoneSwitch" _Text="LedNoneSwitch"  RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "LedAlwaysSwitch" _Text="LedAlwaysSwitch"  RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "LedControlSwitch" _Text="LedControlSwitch"  RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--LedControlTypeB-->
+                    <LayoutControl ID="LedControlTypeBControl" _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "LedFNSwitch" _Text="LedFNSwitch"  RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "LedCapsSwitch" _Text="LedCapsSwitch"  RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "LedNumSwitch" _Text="LedNumSwitch"  RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--LedOrder-->
+                    <LayoutControl ID="LedOrderControl" _OrientationType="Horizontal" >
+                      <Button ID="LedOrder0" _Text ="R, G, B" Type="NoLocalization" ></Button>
+                      <Button ID="LedOrder1" _Text ="R, B, G" Type="NoLocalization" ></Button>
+                      <Button ID="LedOrder2" _Text ="G, R, B" Type="NoLocalization" ></Button>
+                      <Button ID="LedOrder3" _Text ="G, B, R" Type="NoLocalization" ></Button>
+                      <Button ID="LedOrder4" _Text ="B, R, G" Type="NoLocalization" ></Button>
+                      <Button ID="LedOrder5" _Text ="B, G, R" Type="NoLocalization" ></Button>
+                    </LayoutControl>
+                    <!--LedLightTrackBar-->
+                    <LayoutControl ID="LedLightControl" _OrientationType="Horizontal" >
+                      <TextLable _Text="BackLight" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TrackBar ID = "LedLightTB" _Min="0" _Max="255" LayoutPlaceholder="5"></TrackBar>
+                    </LayoutControl>
+                    <!--LedLinkTrackBar-->
+                    <LayoutControl ID="LedLinkControl" _OrientationType="Horizontal" >
+                      <TextLable  _Text="LightLink" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TrackBar ID = "LedLinkTB" _Min="1" _Max="128" LayoutPlaceholder="5"></TrackBar>
+                    </LayoutControl>
+                    <LayoutControl ID="LedMatrixControl" _OrientationType="Vertical" LayoutPlaceholder="11">
+                      <!--LedMatrix-->
+                      <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="8">
+                        <Matrix VerticalCount="8" HorizontalCount="16">
+                          <LayoutControl _OrientationType="Vertical" >
+                            <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="0.2" >
+                              <Panel  ID="AlwaysOnOpen" _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                              <Panel  ID="LedColor" _Color="1,1,1,1" Fill="True" ></Panel>
+                              <Panel  ID="OpenColor" _Color="1,1,1,1" Fill="True" ></Panel>
+                            </LayoutControl>
+                            <Button ID="LedButton" _Text ="" Type="NoLocalization"  LayoutInfo="LedSelectInfo"></Button>
+                          </LayoutControl>
+                        </Matrix>
+                      </LayoutControl>
+                      <!--LedColorSelect-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="3">
+                        <Panel ID="LedColorSelect"  _Color="0,0,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                        <LayoutControl _OrientationType="Vertical" >
+                          <LayoutControl _OrientationType="Horizontal" >
+                            <Panel _Color="1,0,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "LedColorR" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                          <LayoutControl _OrientationType="Horizontal" >
+                            <Panel _Color="0,1,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "LedColorG" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                          <LayoutControl _OrientationType="Horizontal">
+                            <Panel _Color="0,0,1,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "LedColorB" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                        </LayoutControl>
+                        <!--OpenColor-->
+                        <Panel ID="OpenColorSelect"  _Color="0,0,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                        <LayoutControl _OrientationType="Vertical" >
+                          <LayoutControl _OrientationType="Horizontal" >
+                            <Panel _Color="1,0,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "OpenColorR" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                          <LayoutControl _OrientationType="Horizontal" >
+                            <Panel _Color="0,1,0,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "OpenColorG" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                          <LayoutControl _OrientationType="Horizontal">
+                            <Panel _Color="0,0,1,1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                            <TrackBar ID = "OpenColorB" _Min="0" _Max="255"></TrackBar>
+                          </LayoutControl>
+                        </LayoutControl>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="ColorInfoControl" _OrientationType="Vertical" LayoutPlaceholder="12" LayoutAspectRatio="0.545">
+                    <!--ColorInfoTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="ColorInfoTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--StandbyModeTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable _Text="StandbyColorTL" Color="1,1,1,1" BackColor ="0.32, 0.35, 0.39, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--StandbyMode-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "StandbyModeNone" _Text="ColorNone" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "StandbyModeRainbow" _Text="ColorRainbow" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "StandbyModeDynamic" _Text="ColorDynamic" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--StandbyModeB-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "StandbyModeRGBWave" _Text="ColorRGBWave" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "StandbyModeCustom" _Text="ColorCustom" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "StandbyModeClick" _Text="ColorClick" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--ClickModeTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable _Text="ClickColorTL" Color="1,1,1,1" BackColor ="0.32, 0.35, 0.39, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--ClickMode-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "ClickModeNone" _Text="ColorNone" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "ClickModeRainbow" _Text="ColorRainbow" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "ClickModeDynamic" _Text="ColorDynamic" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--ClickModeB-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "ClickModeRGBWave" _Text="ColorRGBWave" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "ClickModeCustom" _Text="ColorCustom" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "ClickModeClick" _Text="ColorClick" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--FnModeTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable _Text="FnColorTL" Color="1,1,1,1" BackColor ="0.32, 0.35, 0.39, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FnMode-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "FnModeNone" _Text="ColorNone" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "FnModeRainbow" _Text="ColorRainbow" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "FnModeDynamic" _Text="ColorDynamic" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--FnModeB-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "FnModeRGBWave" _Text="ColorRGBWave" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "FnModeCustom" _Text="ColorCustom" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "FnModeClick" _Text="ColorClick" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                    <!--DynamicSpeed-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable  _Text="ColorSpeed" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                      <TrackBar ID = "ColorSpeedTB" _Min="1" _Max="255" LayoutPlaceholder="3"></TrackBar>
+                    </LayoutControl>
+                    <!--Offset-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable  _Text="ColorOffset" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                      <TrackBar ID = "ColorOffsetTB" _Min="0" _Max="65535" LayoutPlaceholder="3"></TrackBar>
+                      <TextEditor ID = "ColorOffsetTE" _Text="0" LayoutPlaceholder="0.6"></TextEditor>
+                    </LayoutControl>
+                  </LayoutControl>
+                </LayoutControl>
+                <!--******CustomControlControl******-->
+                <LayoutControl ID="CustomControlControl" _OrientationType="Vertical">
+                  <!--CustomPinControl-->
+                  <LayoutControl ID="CustomPinControl" _OrientationType="Vertical" LayoutPlaceholder="5" LayoutAspectRatio="0.227">
+                    <!--CustomPinTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="CustomPinTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--PinMatrix-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="4" LayoutInfo="CustomPinSelectInfo">
+                      <Matrix VerticalCount="3" HorizontalCount="12">
+                        <LayoutControl _OrientationType="Vertical">
+                          <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="0.15" >
+                            <Panel ID="CustomPinColor"  _Color="1,1,1,1" Fill="True" ></Panel>
+                          </LayoutControl>
+                          <Button ID="CustomPinButton" _Text ="" Type="NoLocalization" ></Button>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="LinkPinControl" _OrientationType="Vertical" LayoutPlaceholder="2.5" LayoutAspectRatio="0.114">
+                    <!--LinkPinTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="LinkPinTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--LinkPin-->
+                    <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="1.5">
+                      <Matrix VerticalCount="1" HorizontalCount="8">
+                        <LayoutControl ID="CustomLinkPin" _OrientationType="Vertical" LayoutAspectRatio="1.5">
+                          <Panel ID="CustomColor" _Color="0.16, 0.63, 0.83, 1" Fill="True"></Panel>
+                          <Button ID="CustomLink" _Text ="" Type="NoLocalization"  LayoutPlaceholder="4" LayoutInfo="LinkPinSelectInfo"/>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="RotateControl" _OrientationType="Vertical" LayoutPlaceholder="2" LayoutAspectRatio="0.091">
+                    <!--RotateConsoleTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="RotateConsoleTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--RotateConsole-->
+                    <LayoutControl _OrientationType="Vertical" >
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <SwitchButton ID = "Rotate0" _Text="0" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "Rotate90" _Text="90" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "Rotate180" _Text="180" RadioStyle="True"></SwitchButton>
+                        <SwitchButton ID = "Rotate270" _Text="270" RadioStyle="True"></SwitchButton>
+                      </LayoutControl>
+                      <Placeholder LayoutPlaceholder="2"></Placeholder>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="OledControl" _OrientationType="Vertical" LayoutPlaceholder="6" LayoutAspectRatio="0.273">
+                    <OLED ID = "OLED"></OLED>
+                  </LayoutControl>
+                  <LayoutControl ID="LinkCountControl" _OrientationType="Vertical" LayoutPlaceholder="2" LayoutAspectRatio="0.091">
+                    <!--LinkCountTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable ID ="LinkCountTip" _Text="LinkCountTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--LinkCountTrackBar-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <TextLable ID ="LinkCountTL" _Text="LinkCount" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TrackBar ID = "LinkCountTB" _Min="1" _Max="9" LayoutPlaceholder="5"></TrackBar>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="FontSetControl" _OrientationType="Vertical" LayoutPlaceholder="4.5"  LayoutAspectRatio="0.205">
+                    <!--FontSetTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontSetTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FontSet-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="1.5">
+                      <Matrix VerticalCount="1" HorizontalCount="9">
+                        <LayoutControl ID="FontSetPin" _OrientationType="Vertical">
+                          <Panel ID="FontSetColor" _Color="0.16, 0.63, 0.83, 1" Fill="True"></Panel>
+                          <Button ID="FontSetButton" _Text ="" Type="NoLocalization"  LayoutPlaceholder="4" LayoutInfo ="FontSetSelectInfo"/>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--FontSetModify-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="2">
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="X" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                        <TextEditor ID = "FontSetXTE" _Text="0" LayoutPlaceholder="1"></TextEditor>
+                        <TextLable  _Text="Point" Color="1,1,1,1" Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="1" ></TextLable>
+                        <TextLable _Text="FontLibSet" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "FontLibSetTB" _Min="1" _Max="8" LayoutPlaceholder="2"></TrackBar>
+                        <Placeholder LayoutPlaceholder="1.5"></Placeholder>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="Y" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                        <TextEditor ID = "FontSetYTE" _Text="0" LayoutPlaceholder="1"></TextEditor>
+                        <TextLable  _Text="Byte" Color="1,1,1,1" Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="1" Localization="False"></TextLable>
+                        <TextLable _Text="FontCountSet" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "FontCountSetTB" _Min="1" _Max="10" LayoutPlaceholder="2"></TrackBar>
+                        <Button ID="OledClearButton" _Text ="OledClear" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1" LayoutPlaceholder="1.5"/>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="LANControl" _OrientationType="Vertical" LayoutPlaceholder="7"  LayoutAspectRatio="0.455">
+                    <!--LinkDataTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="LANTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--LinkData-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="6">
+                      <!--MAC-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="MAC " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "MacTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "MacTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "MacTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "MacTE4" _Text="0" ></TextEditor>
+                        <TextEditor ID = "MacTE5" _Text="0" ></TextEditor>
+                        <TextEditor ID = "MacTE6" _Text="0" ></TextEditor>
+                      </LayoutControl>
+                      <!--IP-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="IP " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "IPTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "IPTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "IPTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "IPTE4" _Text="0" ></TextEditor>
+                        <TextLable _Text="Port " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                        <TextEditor ID = "Port" _Text="0" ></TextEditor>
+                      </LayoutControl>
+                      <!--SubNet-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="SubNet " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "SubNetTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "SubNetTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "SubNetTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "SubNetTE4" _Text="0" ></TextEditor>
+                        <Placeholder ></Placeholder>
+                        <Placeholder ></Placeholder>
+                      </LayoutControl>
+                      <!--GetWay-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="Gateway " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "GatewayTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "GatewayTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "GatewayTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "GatewayTE4" _Text="0" ></TextEditor>
+                        <Placeholder ></Placeholder>
+                        <Placeholder ></Placeholder>
+                      </LayoutControl>
+                      <!--DNS-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="DNS " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "DNSTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "DNSTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "DNSTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "DNSTE4" _Text="0" ></TextEditor>
+                        <Placeholder ></Placeholder>
+                        <Placeholder ></Placeholder>
+                      </LayoutControl>
+                      <!--ServerIP-->
+                      <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                        <TextLable _Text="ServerIP " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                        <TextEditor ID = "ServerIPTE1" _Text="0" ></TextEditor>
+                        <TextEditor ID = "ServerIPTE2" _Text="0" ></TextEditor>
+                        <TextEditor ID = "ServerIPTE3" _Text="0" ></TextEditor>
+                        <TextEditor ID = "ServerIPTE4" _Text="0" ></TextEditor>
+                        <TextLable _Text="Port " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                        <TextEditor ID = "ServerPort" _Text="0" ></TextEditor>
+                      </LayoutControl>
+                    </LayoutControl>
+                  </LayoutControl>
+                  <LayoutControl ID="LinkDataControl" _OrientationType="Vertical" LayoutPlaceholder="10"  LayoutAspectRatio="0.455">
+                    <!--LinkDataTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="LinkDataTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--LinkData-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="9">
+                      <Matrix VerticalCount="8" HorizontalCount="16">
+                        <LayoutControl _OrientationType="Vertical">
+                          <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="0.2" >
+                            <Panel ID="CustomDataSpeed"  _Color="1,1,1,1" Fill="True" LayoutInfo="DataSpeedInfo"></Panel>
+                          </LayoutControl>
+                          <Button ID="CustomDataButton" _Text ="" Type="NoLocalization" LayoutInfo="LinkDataSelectInfo"></Button>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                  </LayoutControl>
+                </LayoutControl>
+                <!--******FontLibraryControl******-->
+                <LayoutControl ID="FontLibraryControl" _OrientationType="Vertical">
+                  <!--FontSizeControl-->
+                  <LayoutControl ID="FontSizeControl" _OrientationType="Vertical" LayoutPlaceholder="44" LayoutAspectRatio="2">
+                    <!--FontSaveTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontSaveTL" Color="1,1,1,1" BackColor ="0.54, 0.72, 0.11, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FontSave-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Button ID="JoyGetFont" _Text ="FontDown" AlwaysOn="True"  Color="0.54, 0.72, 0.11, 1" LayoutInfo ="FontDownInfo"/>
+                      <Button ID="JoySetFont" _Text ="FontUp" AlwaysOn="True"  Color="0.93, 0.31, 0.06, 1" LayoutInfo ="FontUpInfo"/>
+                      <Button ID="FontOutputButton" _Text ="FontOutput" AlwaysOn="True" Color="0.16, 0.63, 0.83, 1" LayoutInfo ="FontOutputInfo"></Button>
+                    </LayoutControl>
+                    <!--FontSizeTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontSizeTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FontSizeLable-->
+                    <LayoutControl ID="FontSizeValueControl" _OrientationType="Horizontal" >
+                      <TextLable  _Text="FontSize" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TextLable ID="FontSizeValue"  _Text="512" Color="1,1,1,1" Frame="True"  TextAlignment="Center" LayoutPlaceholder="4" Localization="False"></TextLable>
+                      <TextLable  _Text="Byte" Color="1,1,1,1" Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="1" Localization="False"></TextLable>
+                    </LayoutControl>
+                    <!--FontWidthBar-->
+                    <LayoutControl ID="FontWidthControl" _OrientationType="Horizontal" >
+                      <TextLable  _Text="FontWidth" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TrackBar ID = "FontWidthTB" _Min="4" _Max="64" LayoutPlaceholder="4"></TrackBar>
+                      <TextLable  _Text="Point" Color="1,1,1,1" Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="1" ></TextLable>
+                    </LayoutControl>
+                    <!--FontHeighBar-->
+                    <LayoutControl ID="FontHeighControl" _OrientationType="Horizontal" >
+                      <TextLable  _Text="FontHeigh" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                      <TrackBar ID = "FontHeighTB" _Min="1" _Max="8" LayoutPlaceholder="4"></TrackBar>
+                      <TextLable  _Text="Byte" Color="1,1,1,1" Frame="False"  TextAlignment="Laeding" LayoutPlaceholder="1" Localization="False"></TextLable>
+                    </LayoutControl>
+                    <!--FontIndexTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontIndexTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FontIndex-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="8">
+                      <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="6">
+                        <Matrix VerticalCount="6" HorizontalCount="16" MaxCount="95">
+                          <LayoutControl _OrientationType="Vertical">
+                            <Button ID="FontIndexButton" _Text ="" Type="NoLocalization" LayoutInfo ="FontIndexSelectInfo"></Button>
+                          </LayoutControl>
+                        </Matrix>
+                      </LayoutControl>
+                      <LayoutControl ID="FontStartControl" _OrientationType="Horizontal" >
+                        <TextLable  _Text="FontStart" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "FontStartTB" _Min="0" _Max="95" LayoutPlaceholder="6"></TrackBar>
+                      </LayoutControl>
+                      <LayoutControl ID="FontEndControl" _OrientationType="Horizontal" >
+                        <TextLable  _Text="FontEnd" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                        <TrackBar ID = "FontEndTB" _Min="0" _Max="95" LayoutPlaceholder="6"></TrackBar>
+                      </LayoutControl>
+                    </LayoutControl>
+                    <!--FontModifyTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontModifyTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="3">
+                      <Placeholder LayoutAspectRatio="0.3333"></Placeholder>
+                      <!--上下左右-->
+                      <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="0.3333" >
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <Button ID="FontLeftButton" _Text ="◄" Type="NoLocalization" LayoutAspectRatio="1" LayoutInfo="LeftMove"></Button>
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="0.3333" >
+                        <Button ID="FontUpButton" _Text ="▲" Type="NoLocalization" LayoutAspectRatio="1" LayoutInfo="UpMove"></Button>
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <Button ID="FontDownButton" _Text ="▼" Type="NoLocalization" LayoutAspectRatio="1" LayoutInfo="DownMove"></Button>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="0.3333" >
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                        <Button ID="FontRightButton" _Text ="►" Type="NoLocalization" LayoutAspectRatio="1" LayoutInfo="RightMove"></Button>
+                        <Placeholder LayoutAspectRatio="1"></Placeholder>
+                      </LayoutControl>
+                      <!--点阵颜色-->
+                      <Placeholder LayoutAspectRatio="0.3333"></Placeholder>
+                      <LayoutControl _OrientationType="Vertical" >
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                        <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                          <Panel _Color="0.93, 0.31, 0.06, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                          <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+                          <SwitchButton ID = "fontRedSwitch" _Text="Red" RadioStyle="True" LayoutPlaceholder="8"></SwitchButton>
+                        </LayoutControl>
+                        <Placeholder LayoutPlaceholder="4"></Placeholder>
+                        <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                          <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                          <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+                          <SwitchButton ID = "fontGreenSwitch" _Text="Green" RadioStyle="True" LayoutPlaceholder="8"></SwitchButton>
+                        </LayoutControl>
+                        <Placeholder LayoutPlaceholder="4"></Placeholder>
+                        <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8" >
+                          <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                          <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+                          <SwitchButton ID = "fontBlueSwitch" _Text="Blue" RadioStyle="True" LayoutPlaceholder="8"></SwitchButton>
+                        </LayoutControl>
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      </LayoutControl>
+                      <!--导出按钮-->
+                      <Placeholder LayoutAspectRatio="0.5"></Placeholder>
+                      <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="2">
+                        <LayoutControl _OrientationType="Horizontal" >
+                          <TextLable  _Text="FontScale" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="2"></TextLable>
+                          <TrackBar ID = "FontScaleTB" _Min="1" _Max="10" LayoutPlaceholder="4"></TrackBar>
+                        </LayoutControl>
+                        <LayoutControl _OrientationType="Horizontal" >
+                          <TextLable _Text="X" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                          <TextEditor ID = "FontOffsetXTE" _Text="0" LayoutPlaceholder="1"></TextEditor>
+                          <TextLable _Text="Y" Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                          <TextEditor ID = "FontOffsetYTE" _Text="0" LayoutPlaceholder="1"></TextEditor>
+                        </LayoutControl>
+                        <LayoutControl _OrientationType="Horizontal" >
+                          <Placeholder></Placeholder>
+                          <Button ID="FontCleanButton" _Text ="FontClean" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1" ></Button>
+                        </LayoutControl>
+                      </LayoutControl>
+                    </LayoutControl>
+                    <!--RotateConsole-->
+                    <LayoutControl ID="FontRotateConsole" _OrientationType="Vertical" LayoutPlaceholder="2">
+                      <LayoutControl _OrientationType="Horizontal" >
+                        <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                        <TextLable _Text="FontRotateConsoleTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                      </LayoutControl>
+                      <LayoutControl _OrientationType="Vertical" >
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                        <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                          <Placeholder LayoutAspectRatio="1"></Placeholder>
+                          <SwitchButton ID = "FontRotate0" _Text="0" RadioStyle="True"></SwitchButton>
+                          <SwitchButton ID = "FontRotate90" _Text="90" RadioStyle="True"></SwitchButton>
+                          <SwitchButton ID = "FontRotate180" _Text="180" RadioStyle="True"></SwitchButton>
+                          <SwitchButton ID = "FontRotate270" _Text="270" RadioStyle="True"></SwitchButton>
+                        </LayoutControl>
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                      </LayoutControl>
+                    </LayoutControl>
+                    <!--FontMatrixTip-->
+                    <LayoutControl _OrientationType="Horizontal" >
+                      <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                      <TextLable _Text="FontMatrixTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+                    </LayoutControl>
+                    <!--FontMatrix-->
+                    <LayoutControl _OrientationType="Vertical" LayoutPlaceholder="22">
+                      <Matrix VerticalCount="64" HorizontalCount="64" >
+                        <LayoutControl _OrientationType="Vertical">
+                          <Panel ID = "FontMatrixButton" _Color="0.16, 0.63, 0.83, 0.1" Fill="True" Click="True"></Panel>
+                        </LayoutControl>
+                      </Matrix>
+                    </LayoutControl>
+                    <!--*******************************************************************************************************************************************************-->
+                  </LayoutControl>
+                </LayoutControl>
+              </ViewControl>
+            </LayoutControl>
+          </LayoutControl>
+        </RightSplit>
+      </SplitControl>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="10" >
+      <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True"></Panel>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

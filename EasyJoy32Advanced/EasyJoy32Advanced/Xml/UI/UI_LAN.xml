@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="UI_LAN"  _OrientationType="Horizontal" LayoutBackColorMedium ="0.18, 0.19, 0.22, 1">
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="20" >
+      <Panel _Color="0.25, 0.25, 0.25, 1" Fill="True"></Panel>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Vertical" >
+      <LayoutControl _OrientationType="Horizontal" LayoutMaxHeight="28" >
+        <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True"></Panel>
+        <ImageButton ID="UI_LAN_Back" _Text ="Back" _Image ="back.png" _ImageFormat="PNG" LayoutAspectRatio="1" AspectRatio="1"  />
+      </LayoutControl>
+      <SplitControl _OrientationType="Horizontal">
+        <LeftSplit Min ="300">
+          <LayoutControl _OrientationType="Vertical" >
+            <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="28">
+              <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+              <TextLable _Text="LanClientList" Color="1,1,1,1" Frame="True"  TextAlignment="Center" ></TextLable>
+            </LayoutControl>
+            <!--JoyObjectList-->
+            <LayoutControl ID="JoyClientControl" _OrientationType="Vertical">
+              <ViewControl ID="JoyClientList" VerticalBar="False">
+                <!--JoyClientListLC-->
+              </ViewControl>
+            </LayoutControl>
+          </LayoutControl>
+        </LeftSplit>
+        <RightSplit Min ="900">
+          <LayoutControl ID="SetServerProperty" _OrientationType="Vertical" >
+            <LayoutControl ID="SetServerControl" _OrientationType="Vertical" LayoutPlaceholder="3"  LayoutAspectRatio="0.136">
+              <!--LinkDataTip-->
+              <LayoutControl _OrientationType="Horizontal" >
+                <Panel _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                <TextLable _Text="SetServerTL" Color="1,1,1,1" BackColor ="0.16, 0.63, 0.83, 0.1" Frame="True"  TextAlignment="Center" ></TextLable>
+              </LayoutControl>
+              <!--IP-->
+              <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                <TextLable _Text="IP " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1.5"></TextLable>
+                <TextEditor ID = "SetServerIPTE1" _Text="192" ></TextEditor>
+                <TextEditor ID = "SetServerIPTE2" _Text="168" ></TextEditor>
+                <TextEditor ID = "SetServerIPTE3" _Text="0" ></TextEditor>
+                <TextEditor ID = "SetServerIPTE4" _Text="80" ></TextEditor>
+                <TextLable _Text="Port " Color="1,1,1,1" Frame="False"  TextAlignment="Trailing" LayoutPlaceholder="1"></TextLable>
+                <TextEditor ID = "SetServerPort" _Text="8080" ></TextEditor>
+              </LayoutControl>
+              <!--IP-->
+              <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="1">
+                <TextLable _Text="ServerState " Color="1,1,1,1" Frame="False"  TextAlignment="Center" ></TextLable>
+                <Panel ID="ServerState" _Color="0.16, 0.63, 0.83, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+                <Button ID="RunServer" _Text ="RunServer" LayoutMaxHeight ="28" AlwaysOn="True" Color="0.54, 0.72, 0.11, 1"   LayoutInfo="RefreshInfo"/>
+                <Button ID="StopServer" _Text ="StopServer" LayoutMaxHeight ="28" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1"   LayoutInfo="RefreshInfo"/>
+              </LayoutControl>
+            </LayoutControl>
+            <ViewControl ID="vcSetServerProperty">
+              <!--vcLANPropertyLC-->
+            </ViewControl>
+          </LayoutControl>
+        </RightSplit>
+      </SplitControl>
+    </LayoutControl>
+    <LayoutControl _OrientationType="Horizontal" LayoutMaxWidth="10" >
+      <Panel _Color="0.75, 0.35, 0.80, 1" Fill="True"></Panel>
+    </LayoutControl>
+  </LayoutControl>
+</UI>

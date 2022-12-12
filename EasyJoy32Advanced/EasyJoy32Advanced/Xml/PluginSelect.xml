@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "PluginSelectLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <LayoutControl _OrientationType="Horizontal" LayoutAspectRatio="2" >
+      <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+      <LayoutControl _OrientationType="Vertical" LayoutAspectRatio="2" LayoutPlaceholder="2">
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+        <LayoutControl _OrientationType="Horizontal" >
+          <SwitchButton ID="PluginSwitch" _Text ="" RadioStyle="True" Localization="false" LayoutAspectRatio="1" LayoutPlaceholder="1" LayoutInfo="PluginSelectInfo"/>
+          <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+          <SwitchButton ID="PluginAuto" _Text ="" RadioStyle="True" Localization="false" LayoutAspectRatio="1" LayoutPlaceholder="1" LayoutInfo="PluginAutoInfo"/>
+          <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+        </LayoutControl>
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+        <Placeholder LayoutPlaceholder="0.1"></Placeholder>
+      </LayoutControl>
+    </LayoutControl>
+    <Button ID="PluginProperty" _Text ="Test" Type="NoLocalization" LayoutInfo="PluginPropertyInfo"/>
+  </LayoutControl>
+</UI>

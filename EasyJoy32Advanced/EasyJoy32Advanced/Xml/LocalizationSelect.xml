@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <Button ID="LocalizationIndex" _Text ="Test" Type="NoLocalization" TextAlignment="Center" Color="0.93, 0.31, 0.06, 1" />
+</UI>

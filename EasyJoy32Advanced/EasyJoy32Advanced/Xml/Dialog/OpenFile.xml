@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID ="OpenFileUI"  _OrientationType="Vertical" >
+    <Placeholder ></Placeholder>
+    <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="384" >
+      <Placeholder ></Placeholder>
+      <LayoutControl  _OrientationType="Vertical" LayoutMaxWidth="400" LayoutBackColorMedium = "0.18, 0.19, 0.22, 1">
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="8">
+          <Panel _Color="0.93, 0.31, 0.06, 1" Fill="True" LayoutAspectRatio="4"></Panel>
+          <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True"></Panel>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal"  LayoutMaxHeight="28">
+          <TextLable ID = "OpenFileTip" _Text="SaveFileTip"  TextAlignment="Center" BackColor="0.16, 0.63, 0.83, 0.1"></TextLable>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Vertical" >
+          <ViewControl ID="OpenFileList" VerticalBar="False">
+            <!--OpenFileListLC-->
+          </ViewControl>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="32">
+          <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
+          <Button ID="OpenFileButton" _Text ="Open" />
+          <Button ID="OpenFileCancel" _Text ="Cancel" LayoutAspectRatio="2" AlwaysOn="True" Color="0.93, 0.31, 0.06, 1"/>
+        </LayoutControl>
+        <LayoutControl  _OrientationType="Horizontal" LayoutMaxHeight="24">
+          <TextLable ID="OpenFileError" _Text="InputFileName"  TextAlignment="Leading" Color="0.94, 0.69, 0.09, 1" Frame="False"></TextLable>
+        </LayoutControl>
+      </LayoutControl>
+      <Placeholder ></Placeholder>
+    </LayoutControl>
+    <Placeholder ></Placeholder>
+  </LayoutControl>
+</UI>

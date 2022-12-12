@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "FontSelectLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <Placeholder LayoutAspectRatio="0.3"></Placeholder>
+    <Panel ID = "FontColor" _Color="1,1,1,1" Fill="true" LayoutAspectRatio="0.5"></Panel>
+    <Button ID="FontSelectIndex" _Text ="FontLib"/>
+  </LayoutControl>
+</UI>

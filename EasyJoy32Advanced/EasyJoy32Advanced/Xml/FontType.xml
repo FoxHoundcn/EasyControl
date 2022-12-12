@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UI>
+  <LayoutControl ID = "FontTypeLC" _OrientationType="Horizontal" LayoutMaxHeight ="28" >
+    <Panel ID = "FontModeColor" _Color="1,1,1,1" Fill="true" LayoutAspectRatio="0.5"></Panel>
+    <Button ID="FontTypeIndex" _Text ="Test" Type="NoLocalization" TextAlignment="Leading"/>
+  </LayoutControl>
+</UI>
