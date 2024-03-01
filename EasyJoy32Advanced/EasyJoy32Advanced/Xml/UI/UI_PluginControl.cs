@@ -79,9 +79,11 @@ namespace EasyControl
                 float height = 0f;
                 foreach (InterfacePlugin ip in pluginList.Values)
                 {
+                    List<Node> nodeList = ip.GetModuleList();
+                    if (nodeList == null)
+                        continue;
                     height = 0f;
                     height += lcPluginHeight;
-                    List<Node> nodeList = ip.GetModuleList();
                     uiSwitchButton pluginSB = XmlUI.Instance.GetSwitchButton(ip.PluginID + "PluginSwitch");
                     pluginSB.bSwitchOn = ip.Open;
                     uiSwitchButton pluginAO = XmlUI.Instance.GetSwitchButton(ip.PluginID + "PluginAuto");
@@ -167,6 +169,9 @@ namespace EasyControl
             {
                 //插件加载
                 NodeLinkControl.Instance.AddNewPluginNode(ip, true);
+                List<Node> nodeList = ip.GetModuleList();
+                if (nodeList == null)
+                    continue;
                 if (ip.Open)
                 {
                     if (ip.Auto)
@@ -191,7 +196,6 @@ namespace EasyControl
                 pluginAO.PluginID = ip.PluginID;
                 pluginAO.ValueChange += OnPluginAutoChange;
                 //-------------------------------------------------------------------------------------------------------
-                List<Node> nodeList = ip.GetModuleList();
                 List<LayoutControl> tempNodeList = new List<LayoutControl>();
                 for (int j = 0; j < nodeList.Count; j++)
                 {
@@ -489,31 +493,12 @@ namespace EasyControl
             {
                 pluginList.Clear();
                 #region 加载DLL
-                bool loadReady = false;
-                string pluginListStr = "";
-                if (NetMQServer.CheckPlugin(JoyConst.version1 + "_" + JoyConst.version2 + "_" + JoyConst.version3, out pluginListStr))
-                    loadReady = true;
-                if (loadReady)
+                string[] pluginPathArray = Directory.GetFiles(System.Environment.CurrentDirectory + "\\Plugins\\", "*.dll");
+                if (pluginPathArray.Length != 0)
                 {
-                    string[] pluginListArray = pluginListStr.Split(',');
-                    if (pluginListArray.Length != 0)
+                    foreach (string pluginPath in pluginPathArray)
                     {
-                        foreach (string pluginArray in pluginListArray)
-                        {
-                            string[] pluginInfo = pluginArray.Split('|');
-                            if (pluginInfo.Length == 5)
-                            {
-                                string file = System.Environment.CurrentDirectory + "\\Plugins\\" + pluginInfo[0] + ".dll";
-                                if (File.Exists(file))
-                                {
-                                    string code = PublicData.GetSHA1String(file);
-                                    if (pluginInfo[1].ToUpper().Equals(code.ToUpper()) || pluginInfo[4].Equals("1"))//code相同 或 开发者
-                                    {
-                                        LoadDll(file, pluginInfo[2], pluginInfo[3]);
-                                    }
-                                }
-                            }
-                        }
+                        LoadDll(pluginPath);
                     }
                 }
                 #endregion
@@ -523,7 +508,7 @@ namespace EasyControl
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        private bool LoadDll(string file, string PluginName, string GUID)
+        private void LoadDll(string file)
         {
             try
             {
@@ -541,13 +526,6 @@ namespace EasyControl
                     if (IsValidPlugin(t))
                     {
                         InterfacePlugin plugin = (InterfacePlugin)tmp.CreateInstance(t.FullName);
-                        #region 判断合法
-                        if (!(PluginName.Equals(plugin.GetName()) && GUID.ToUpper().Equals(plugin.PluginID.ToUpper())))
-                        {
-                            WarningForm.Instance.OpenUI("PluginVersionError");
-                            return false;
-                        }
-                        #endregion
                         //do it
                         plugin.CreateUDP += PluginCreateUdp;
                         plugin.SendUDP += PluginSendUdp;
@@ -639,12 +617,10 @@ namespace EasyControl
                         break;
                     }
                 }
-                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-                return false;
+                DebugConstol.AddLog("LoadDll->" + ex.Message + ex.StackTrace, LogType.Warning);
             }
         }
         private bool IsValidPlugin(Type t)

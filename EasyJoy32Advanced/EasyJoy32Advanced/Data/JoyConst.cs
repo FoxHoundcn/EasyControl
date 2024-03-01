@@ -5,9 +5,9 @@
         #region version
         public const byte version1 = 4;
         public const byte version2 = 0;
-        public const byte version3 = 47;
+        public const byte version3 = 48;
         public const byte ProtocolVer1 = 1;
-        public const byte ProtocolVer2 = 30;
+        public const byte ProtocolVer2 = 31;
         #endregion
         #region server
         public const long TimeOut = 50000000;

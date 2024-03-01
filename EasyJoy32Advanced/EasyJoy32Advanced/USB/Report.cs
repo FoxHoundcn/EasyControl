@@ -526,6 +526,7 @@ namespace EasyControl
                     report[JoyConst.ReportDataStart + JoyConst.MaxUsbName + 22] = (byte)obj.IdleColor;
                     report[JoyConst.ReportDataStart + JoyConst.MaxUsbName + 23] = obj.DynamicSpeed;
                     report[JoyConst.ReportDataStart + JoyConst.MaxUsbName + 24] = (byte)(obj.USBPower ? 1 : 0);
+                    report[JoyConst.ReportDataStart + JoyConst.MaxUsbName + 25] = (byte)(obj.TwoKeyMode ? 1 : 0);
                     #endregion
                     break;
                 case ReportType.GetUsbInfo:
@@ -674,6 +675,7 @@ namespace EasyControl
                             report[JoyConst.ReportDataStart + 52] = obj.BackLightBrightness;
                             report[JoyConst.ReportDataStart + 53] = (byte)(obj.HC165 ? 1 : 0);
                             report[JoyConst.ReportDataStart + 54] = (byte)(obj.USBPower ? 1 : 0);
+                            report[JoyConst.ReportDataStart + 55] = (byte)(obj.TwoKeyMode ? 1 : 0);
                             #endregion
                             #region KB
                             switch (obj.HardwareVersion)

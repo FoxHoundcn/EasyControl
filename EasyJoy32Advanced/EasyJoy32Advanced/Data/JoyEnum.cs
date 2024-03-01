@@ -23,12 +23,6 @@ namespace EasyControl
         TwoStep,
         FourStep,
     }
-    public enum ServerState
-    {
-        Offline,
-        LastVersion,
-        OldVersion,
-    }
     public enum UIType
     {
         None = 0,

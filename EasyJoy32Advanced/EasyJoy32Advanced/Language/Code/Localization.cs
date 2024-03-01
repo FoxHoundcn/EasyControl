@@ -39,6 +39,16 @@ namespace EasyControl
         {
         }
         #region Settings
+        public bool GetHideWindows()
+        {
+            string Value;
+            if (!Settings.IniReadValue("HideWindows", out Value))
+            {
+                Value = "0";
+                Settings.IniWriteValue("HideWindows", Value);
+            }
+            return !Value.Equals("0");
+        }
         public int GetCustomNodeCount(int count)
         {
             string Value;

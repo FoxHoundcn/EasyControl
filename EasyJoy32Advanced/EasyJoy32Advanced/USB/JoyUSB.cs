@@ -39,10 +39,17 @@ namespace EasyControl
         }
         public void CheckRefresh()
         {
-            List<HIDInfo> devs = HIDBrowse.Browse();
-            if (devs.Count != PublicData.devCount)
+            try
             {
-                Refresh();
+                List<HIDInfo> devs = HIDBrowse.Browse();
+                if (devs.Count != PublicData.devCount)
+                {
+                    Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                DebugConstol.AddLog("ERROR : " + ex.ToString(), LogType.Error);
             }
         }
         public bool Refresh()

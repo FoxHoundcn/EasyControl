@@ -93,7 +93,7 @@
               <ViewControl ID="vcInputControl">
                 <!--vcInputControlLC-->
                 <!--JoyDataControl-->
-                <LayoutControl ID="JoyDataControl" _OrientationType="Vertical" LayoutPlaceholder="4" LayoutAspectRatio="0.182">
+                <LayoutControl ID="JoyDataControl" _OrientationType="Vertical" LayoutPlaceholder="5" LayoutAspectRatio="0.227">
                   <!--JoyDataTip-->
                   <LayoutControl _OrientationType="Horizontal" >
                     <Panel _Color="0.94, 0.69, 0.09, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
@@ -116,6 +116,12 @@
                   <LayoutControl _OrientationType="Horizontal" >
                     <TextLable _Text="MucID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
                     <TextLable ID="ShowMucID" _Text="000000000000000000000000" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False" LayoutPlaceholder="4"></TextLable>
+                  </LayoutControl>
+                  <!--Key-->
+                  <LayoutControl _OrientationType="Horizontal" >
+                    <TextLable _Text="LicenseID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
+                    <TextEditor ID="ShowKey" _Text="00000000-00000000-00000000-00000000" LayoutPlaceholder="3.3"></TextEditor>
+                    <Button ID="PasteBtn" _Text ="PasteBtn" LayoutPlaceholder="0.7"/>
                   </LayoutControl>
                 </LayoutControl>
                 <!--外设数量-->
@@ -247,7 +253,7 @@
                     </LayoutControl>
                   </LayoutControl>
                   <!--************************  Output  ************************-->
-                  <LayoutControl ID="ButtonControl" _OrientationType="Vertical" LayoutPlaceholder="25"  LayoutAspectRatio="1.136">
+                  <LayoutControl ID="ButtonControl" _OrientationType="Vertical" LayoutPlaceholder="26"  LayoutAspectRatio="1.182">
                     <!--ButtonTip-->
                     <LayoutControl _OrientationType="Horizontal" >
                       <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
@@ -285,11 +291,20 @@
                       <Placeholder LayoutPlaceholder="2"></Placeholder>
                     </LayoutControl>
                     <!--ButtonKeyBoard-->
-                    <LayoutControl  ID = "KeyBoardControl" _OrientationType="Vertical" LayoutPlaceholder="7" LayoutAspectRatio="0.318">
+                    <LayoutControl  ID = "KeyBoardControl" _OrientationType="Vertical" LayoutPlaceholder="8" LayoutAspectRatio="0.364">
                       <!--ButtonTip-->
                       <LayoutControl _OrientationType="Horizontal" >
                         <Panel _Color="0.54, 0.72, 0.11, 1" Fill="True" LayoutAspectRatio="1" ></Panel>
                         <TextLable _Text="KeyBoardTL" Color="1,1,1,1"  Frame="True"  TextAlignment="Center" ></TextLable>
+                      </LayoutControl>
+                      <!--2 Mode-->
+                      <LayoutControl _OrientationType="Vertical" >
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
+                        <LayoutControl _OrientationType="Horizontal" LayoutPlaceholder="8">
+                          <Placeholder LayoutAspectRatio="1"></Placeholder>
+                          <SwitchButton ID = "TwoKeyMode" _Text="TwoKeyMode" ></SwitchButton>
+                        </LayoutControl>
+                        <Placeholder LayoutPlaceholder="2"></Placeholder>
                       </LayoutControl>
                       <LayoutControl _OrientationType="Horizontal"  LayoutPlaceholder="6">
                         <KeyBoard ID = "KeyBoard"></KeyBoard>

@@ -32,28 +32,6 @@ namespace EasyControl
             InitializeComponent();
             this.panelDx2D.MouseWheel += new MouseEventHandler(panelDx2D_MouseWheel);
             Text = "Easy Control ver" + JoyConst.version1 + "." + JoyConst.version2 + "." + JoyConst.version3;
-            string serverVer = "";
-            if (NetMQServer.GetControlVersion(out serverVer))
-            {
-                if (!serverVer.Equals(""))
-                {
-                    Text += " (" + serverVer + ")";
-                    PublicData.LastVersion = ServerState.OldVersion;
-                }
-                else
-                {
-                    Text += " ( Last version )";
-                    PublicData.LastVersion = ServerState.LastVersion;
-                }
-            }
-            else
-            {
-                Text += " ( OffLine )";
-                PublicData.LastVersion = ServerState.Offline;
-
-                //MessageBox.Show("Server Error !");
-                //System.Environment.Exit(System.Environment.ExitCode);
-            }
             try
             {
                 #region Debug窗口
@@ -87,6 +65,11 @@ namespace EasyControl
         private void MainForm_Load(object sender, EventArgs e)
         {
             PublicData.m_hImc = ImmGetContext(this.Handle);
+            if (Localization.Instance.GetHideWindows())
+            {
+                显示ToolStripMenuItem.Enabled = false;
+                WindowState = FormWindowState.Minimized;
+            }
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -186,6 +169,10 @@ namespace EasyControl
         #region 界面缩放
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            if(WindowState == FormWindowState.Minimized)
+            {
+                Visible = false;
+            }
         }
         private void panelDx2D_Resize(object sender, EventArgs e)
         {
@@ -255,16 +242,22 @@ namespace EasyControl
 
         private void 显示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Show();                                //窗体显示  
-            this.WindowState = FormWindowState.Normal;  //窗体状态默认大小  
-            this.Activate();                            //激活窗体给予焦点
+            if (!Localization.Instance.GetHideWindows())
+            {
+                this.Show();                                //窗体显示  
+                this.WindowState = FormWindowState.Normal;  //窗体状态默认大小  
+                this.Activate();                            //激活窗体给予焦点
+            }
         }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            this.Show();                                //窗体显示  
-            this.WindowState = FormWindowState.Normal;  //窗体状态默认大小  
-            this.Activate();                            //激活窗体给予焦点
+            if (!Localization.Instance.GetHideWindows())
+            {
+                this.Show();                                //窗体显示  
+                this.WindowState = FormWindowState.Normal;  //窗体状态默认大小  
+                this.Activate();                            //激活窗体给予焦点
+            }
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)

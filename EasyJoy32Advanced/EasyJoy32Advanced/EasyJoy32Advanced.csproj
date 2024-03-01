@@ -157,7 +157,6 @@
     <Compile Include="Language\Code\Localization.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server\NetMQServer.cs" />
     <Compile Include="Server\TCPServer.cs" />
     <Compile Include="Server\UdpConnection.cs" />
     <Compile Include="Server\UdpReceive.cs" />
@@ -427,7 +426,7 @@ md $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\Xml\
 md $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\Xml\Dialog\
 md $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\Xml\UI\
 md $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\
-copy $(TargetDir)$(AssemblyName).exe $(TargetDir)..\..\..\..\EasyControlReleaseServer\Sources\$(AssemblyName).exe
+copy $(TargetDir)$(AssemblyName).exe $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\$(AssemblyName).exe
 copy $(TargetDir)Config\ $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\Config\
 copy $(TargetDir)CustomNode\ $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\CustomNode\
 copy $(TargetDir)Image\ $(TargetDir)..\..\..\..\EasyControlRelease\LatestVersion\Image\

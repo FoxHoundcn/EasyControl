@@ -246,8 +246,11 @@ namespace FoxH.HID
                 /* get attributes */
                 if (HIDSystem.HidD_GetAttributes(handle, ref attr) == false)
                 {
+                    Vid = short.MaxValue;
+                    Pid = short.MaxValue;
+                    return;
                     /* fail! */
-                    throw new Win32Exception();
+                    //throw new Win32Exception();
                 }
 
                 /* update vid and pid */

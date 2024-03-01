@@ -93,31 +93,37 @@ namespace EasyControl
             vcCustomNodeListLC = XmlUI.Instance.GetLayoutControl("vcCustomNodeListLC");
             //===============================
             DirectoryInfo LuaDir = new DirectoryInfo(System.Environment.CurrentDirectory + @"\LuaNode");
-            foreach (FileInfo file in LuaDir.GetFiles())
+            if (LuaDir.Exists)
             {
-                string ex = Path.GetExtension(file.FullName);
-                if (ex.Equals(".lua"))
+                foreach (FileInfo file in LuaDir.GetFiles())
                 {
-                    LuaNode newNode = new LuaNode(file.FullName);
-                    newNode.color = XmlUI.DxDeviceGreen;
-                    if (ipCustomNodeList.ContainsKey(newNode.GetName()))
-                        MessageBox.Show(ipCustomNodeList[newNode.GetName()].path + "\n" + file.FullName + "\n" + Localization.Instance.GetLS("CustomNodeNameError"));
-                    else
-                        ipCustomNodeList.Add(newNode.GetName(), newNode);
+                    string ex = Path.GetExtension(file.FullName);
+                    if (ex.Equals(".lua"))
+                    {
+                        LuaNode newNode = new LuaNode(file.FullName);
+                        newNode.color = XmlUI.DxDeviceGreen;
+                        if (ipCustomNodeList.ContainsKey(newNode.GetName()))
+                            MessageBox.Show(ipCustomNodeList[newNode.GetName()].path + "\n" + file.FullName + "\n" + Localization.Instance.GetLS("CustomNodeNameError"));
+                        else
+                            ipCustomNodeList.Add(newNode.GetName(), newNode);
+                    }
                 }
             }
             DirectoryInfo CustomDir = new DirectoryInfo(System.Environment.CurrentDirectory + @"\CustomNode");
-            foreach (FileInfo file in CustomDir.GetFiles())
+            if (CustomDir.Exists)
             {
-                string ex = Path.GetExtension(file.FullName);
-                if (ex.Equals(".lua"))
+                foreach (FileInfo file in CustomDir.GetFiles())
                 {
-                    LuaNode newNode = new LuaNode(file.FullName);
-                    newNode.color = XmlUI.DxDeviceYellow;
-                    if (ipCustomNodeList.ContainsKey(newNode.GetName()))
-                        MessageBox.Show(ipCustomNodeList[newNode.GetName()].path + "\n" + file.FullName + "\n" + Localization.Instance.GetLS("CustomNodeNameError"));
-                    else
-                        ipCustomNodeList.Add(newNode.GetName(), newNode);
+                    string ex = Path.GetExtension(file.FullName);
+                    if (ex.Equals(".lua"))
+                    {
+                        LuaNode newNode = new LuaNode(file.FullName);
+                        newNode.color = XmlUI.DxDeviceYellow;
+                        if (ipCustomNodeList.ContainsKey(newNode.GetName()))
+                            MessageBox.Show(ipCustomNodeList[newNode.GetName()].path + "\n" + file.FullName + "\n" + Localization.Instance.GetLS("CustomNodeNameError"));
+                        else
+                            ipCustomNodeList.Add(newNode.GetName(), newNode);
+                    }
                 }
             }
             //===============================
@@ -140,8 +146,6 @@ namespace EasyControl
         #region Save&Load
         public void Save()
         {
-            if (PublicData.LastVersion == ServerState.Offline)
-                return;
             if (PublicData.saveData == null)
                 PublicData.saveData = new SaveData();
             PublicData.saveData.OffsetX = _offset.X;
@@ -168,6 +172,9 @@ namespace EasyControl
             }
             foreach (var item in UI_PluginControl.pluginList)
             {
+                List<Node> nodeList = item.Value.GetModuleList();
+                if (nodeList == null)
+                    continue;
                 //插件开关
                 if (PublicData.saveData.pluginSetList.ContainsKey(item.Key))
                 {
@@ -183,7 +190,6 @@ namespace EasyControl
                 }
                 //模块开关
                 List<bool> nodeOpenList = new List<bool>();
-                List<Node> nodeList = item.Value.GetModuleList();
                 for (int i = 0; i < nodeList.Count; i++)
                 {
                     nodeOpenList.Add(nodeList[i].Open);
@@ -338,39 +344,46 @@ namespace EasyControl
         }
         public void AddNewPluginNode(InterfacePlugin ip, bool close)
         {
-            ip.Init();
-            string id = ip.PluginID;
-            List<Node> nodeList = ip.GetModuleList();
-            if (nodeList != null && nodeList.Count > 0)
+            try
             {
-                List<uiNode> uiNodeList = new List<uiNode>();
-                for (int nodeIndex = 0; nodeIndex < nodeList.Count; nodeIndex++)
+                ip.Init();
+                string id = ip.PluginID;
+                List<Node> nodeList = ip.GetModuleList();
+                if (nodeList != null && nodeList.Count > 0)
                 {
-                    Node _node = nodeList[nodeIndex];
-                    if (_node.NodePortList.Count > 0)
+                    List<uiNode> uiNodeList = new List<uiNode>();
+                    for (int nodeIndex = 0; nodeIndex < nodeList.Count; nodeIndex++)
                     {
-                        uiNode node = new uiNode(id, nodeIndex, ip, _node, close);
-                        node.Parent = this;
-                        uiNodeList.Add(node);
-                    }
-                }
-                if (uiNodeList.Count > 0)
-                {
-                    lock (uiPluginNodeList)
-                    {
-                        uiPluginNodeList.Add(id, uiNodeList);
-                        if (PublicData.saveData != null && PublicData.saveData.nodeList.ContainsKey(id))
+                        Node _node = nodeList[nodeIndex];
+                        if (_node.NodePortList.Count > 0)
                         {
-                            if (PublicData.saveData.nodeList[id].Count == uiPluginNodeList[id].Count)
+                            uiNode node = new uiNode(id, nodeIndex, ip, _node, close);
+                            node.Parent = this;
+                            uiNodeList.Add(node);
+                        }
+                    }
+                    if (uiNodeList.Count > 0)
+                    {
+                        lock (uiPluginNodeList)
+                        {
+                            uiPluginNodeList.Add(id, uiNodeList);
+                            if (PublicData.saveData != null && PublicData.saveData.nodeList.ContainsKey(id))
                             {
-                                for (int i = 0; i < PublicData.saveData.nodeList[id].Count; i++)
+                                if (PublicData.saveData.nodeList[id].Count == uiPluginNodeList[id].Count)
                                 {
-                                    uiPluginNodeList[id][i].Load(PublicData.saveData.nodeList[id][i]);
+                                    for (int i = 0; i < PublicData.saveData.nodeList[id].Count; i++)
+                                    {
+                                        uiPluginNodeList[id][i].Load(PublicData.saveData.nodeList[id][i]);
+                                    }
                                 }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                DebugConstol.AddLog("AddNewPluginNode->" + ex.Message + ex.StackTrace, LogType.Warning);
             }
         }
         public void DeletePluginNode(InterfacePlugin ip)

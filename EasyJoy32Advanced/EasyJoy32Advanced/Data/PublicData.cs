@@ -15,8 +15,6 @@ namespace EasyControl
         public static bool AutoLogin = false;
         public static bool Debug = false;
         public static bool PluginDebug = false;
-        public static ServerState LastVersion = ServerState.Offline;
-        public static string URL = @"https://easyfox.com.cn";
         public static string TutorialURL = @"https://space.bilibili.com/8840273";
         //--------------------------------------------------------
         private static int _autoSaveTime = 0;
@@ -744,6 +742,7 @@ namespace EasyControl
             switch (_ver)
             {
                 case "3xU":
+                case "35U":
                     filePathVKB = Environment.CurrentDirectory + "\\\\EasyKeyBoard.bin";
                     filePathV31 = Environment.CurrentDirectory + "\\\\EasyJoy32_v31.bin";
                     filePathV35 = Environment.CurrentDirectory + "\\\\EasyJoy32_v35.bin";

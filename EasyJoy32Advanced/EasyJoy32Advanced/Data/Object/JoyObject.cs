@@ -216,6 +216,7 @@ namespace EasyControl
         public byte BackLightBrightness { private set; get; } = 0; //背光亮度
         public byte ColorOrder { private set; get; } = 0; //色彩排序
         public bool HC165 { private set; get; } = true; //HC165 or CD4021
+        public bool TwoKeyMode { private set; get; } = true; //键盘双按键模式
         public bool USBPower { private set; get; } = true;
         public bool NeedPowerControl = false;
         public ColorInfoType IdleColor { private set; get; } = ColorInfoType.ColorDynamicRainbow;//待机颜色
@@ -1989,6 +1990,10 @@ namespace EasyControl
             if (HC165 != _hc165)
                 HC165 = _hc165;
         }
+        public void SetTwoKeyMode(bool _Mode)
+        {
+            TwoKeyMode = _Mode;
+        }
         public void SetUsbPower(bool _usbPower)
         {
             USBPower = _usbPower;
@@ -2047,15 +2052,6 @@ namespace EasyControl
         {
             if (LicenseUID != _uid)
                 LicenseUID = _uid;
-            if (!LicenseUID)
-            {
-                GetLicense();
-            }
-            else
-            {
-                string key;
-                UpdateLicense(out key);
-            }
         }
         #endregion
         public void SetAxisID(int outPort, int index)
@@ -2091,7 +2087,7 @@ namespace EasyControl
             if (id.Length == 24)
                 McuID = id.ToUpper();
         }
-        public void SetKeyText(string key)
+        public bool SetKeyText(string key)
         {
             try
             {
@@ -2108,38 +2104,27 @@ namespace EasyControl
                             licenseKey[i * 4 + 2] = (byte)((PublicData.char2byte(keyList[i][4]) << 4) + PublicData.char2byte(keyList[i][5]));
                             licenseKey[i * 4 + 3] = (byte)((PublicData.char2byte(keyList[i][6]) << 4) + PublicData.char2byte(keyList[i][7]));
                         }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
+                else
+                {
+                    return false;
+                }
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
+            return false;
         }
         public void GetLicense()
         {
-            string key;
-            if (UpdateLicense(out key))
-            {
-                AddReport(new Report(ReportType.LicenseKey));
-            }
-            else
-            {
-                WarningForm.Instance.OpenUI(key);
-            }
-        }
-        public bool UpdateLicense(out string key)
-        {
-            key = "";
-            if (McuID.Length == 24)
-            {
-                if (NetMQServer.License(version1.ToString() + version2.ToString(), McuID, out key))
-                {
-                    SetKeyText(key);
-                    return true;
-                }
-            }
-            return false;
+            AddReport(new Report(ReportType.LicenseKey));
         }
         #endregion
         #region 设置Font

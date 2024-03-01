@@ -20,6 +20,9 @@ namespace EasyControl
         private long nextTime = 0;
         private int refreshTime = 0;
         #endregion
+        #region 窗口缓存
+        public MainForm mainCache = null;
+        #endregion
         #region D2D变量
         //笔刷----------------------------------------------------------------------------------------
         private SolidColorBrush solidColorBrush;
@@ -51,6 +54,7 @@ namespace EasyControl
         }
         public void Init(MainForm main, Panel panelD2D)
         {
+            mainCache = main;
             #region 初始化Dx2D
             P = new PixelFormat(SharpDX.DXGI.Format.B8G8R8A8_UNorm, AlphaMode.Ignore);
             Factory2D = new SharpDX.Direct2D1.Factory();
@@ -97,81 +101,81 @@ namespace EasyControl
                 {
                     nextTime = DateTime.Now.Ticks + 150000;
 #endif
-                if (DateTime.Now.Millisecond - reSizeTims > 200 || DateTime.Now.Millisecond - reSizeTims < 0)
-                {
-                    Process A = Process.GetCurrentProcess();
-                    A.MaxWorkingSet = Process.GetCurrentProcess().MaxWorkingSet;
-                    A.Dispose();
-                    //----
-                    reSizeTims = DateTime.Now.Millisecond;
-                    render.Dx2DResize();
-                }
-                if (msTims <= DateTime.Now.Millisecond)
-                {
-                    fps++;
-                    msTims = DateTime.Now.Millisecond;
-                }
-                else
-                {
-                    #region 刷新USB
-                    refreshTime++;
-                    if (refreshTime > 1)
+                    if (DateTime.Now.Millisecond - reSizeTims > 200 || DateTime.Now.Millisecond - reSizeTims < 0)
                     {
-                        JoyUSB.Instance.CheckRefresh();
-                        refreshTime = 0;
+                        Process A = Process.GetCurrentProcess();
+                        A.MaxWorkingSet = Process.GetCurrentProcess().MaxWorkingSet;
+                        A.Dispose();
+                        //----
+                        reSizeTims = DateTime.Now.Millisecond;
+                        render.Dx2DResize();
+                    }
+                    if (msTims <= DateTime.Now.Millisecond)
+                    {
+                        fps++;
+                        msTims = DateTime.Now.Millisecond;
+                    }
+                    else
+                    {
+                        #region 刷新USB
+                        refreshTime++;
+                        if (refreshTime > 1)
+                        {
+                            JoyUSB.Instance.CheckRefresh();
+                            refreshTime = 0;
+                        }
+                        #endregion
+                        #region 自动保存
+                        PublicData.autoSaveTime++;
+                        #endregion
+                        #region 验证登录状态
+                        //暂时取消登录验证
+                        //PublicData.checkLoginTime++;       
+                        #endregion
+                        msTims = 0;
+                        showFps = fps;
+                        fps = 0;
+                        PublicData.publicColorCount += 10;
+                        List<JoyObject> joyObjList = JoyUSB.Instance.GetJoyList();
+                        for (int i = 0; i < joyObjList.Count; i++)
+                        {
+                            joyObjList[i].currentColorCount = PublicData.publicColorCount;
+                            joyObjList[i].msTims = 0;
+                            joyObjList[i].showFps = joyObjList[i].fps;
+                            joyObjList[i].fps = 0;
+                        }
+                        List<JoyObject> joyClientList = TCPServer.Instance.GetJoyClientList();
+                        for (int i = 0; i < joyClientList.Count; i++)
+                        {
+                            joyClientList[i].currentColorCount = PublicData.publicColorCount;
+                            joyClientList[i].msTims = 0;
+                            joyClientList[i].showFps = joyClientList[i].fps;
+                            joyClientList[i].fps = 0;
+                        }
+                    }
+                    RenderTarget2D.BeginDraw();
+                    RenderTarget2D.Clear(XmlUI.DxBackColor);
+                    #region 渲染事件
+                    if (render != null)
+                    {
+                        dashOffset++;//更新绘制线段偏移;
+                        render.DxRenderLogic();
+                        render.DxRenderLow();
+                        render.DxRenderMedium();
+                        render.DxRenderHigh();
                     }
                     #endregion
-                    #region 自动保存
-                    PublicData.autoSaveTime++;
-                    #endregion
-                    #region 验证登录状态
-                    //暂时取消登录验证
-                    //PublicData.checkLoginTime++;       
-                    #endregion
-                    msTims = 0;
-                    showFps = fps;
-                    fps = 0;
-                    PublicData.publicColorCount += 10;
-                    List<JoyObject> joyObjList = JoyUSB.Instance.GetJoyList();
-                    for (int i = 0; i < joyObjList.Count; i++)
+                    Color4 color = XmlUI.DxDeviceRed;
+                    if (showFps > 50)
                     {
-                        joyObjList[i].currentColorCount = PublicData.publicColorCount;
-                        joyObjList[i].msTims = 0;
-                        joyObjList[i].showFps = joyObjList[i].fps;
-                        joyObjList[i].fps = 0;
+                        color = XmlUI.DxDeviceGreen;
                     }
-                    List<JoyObject> joyClientList = TCPServer.Instance.GetJoyClientList();
-                    for (int i = 0; i < joyClientList.Count; i++)
+                    else if (showFps > 30)
                     {
-                        joyClientList[i].currentColorCount = PublicData.publicColorCount;
-                        joyClientList[i].msTims = 0;
-                        joyClientList[i].showFps = joyClientList[i].fps;
-                        joyClientList[i].fps = 0;
+                        color = XmlUI.DxDeviceYellow;
                     }
-                }
-                RenderTarget2D.BeginDraw();
-                RenderTarget2D.Clear(XmlUI.DxBackColor);
-                #region 渲染事件
-                if (render != null)
-                {
-                    dashOffset++;//更新绘制线段偏移;
-                    render.DxRenderLogic();
-                    render.DxRenderLow();
-                    render.DxRenderMedium();
-                    render.DxRenderHigh();
-                }
-                #endregion
-                Color4 color = XmlUI.DxDeviceRed;
-                if (showFps > 50)
-                {
-                    color = XmlUI.DxDeviceGreen;
-                }
-                else if (showFps > 30)
-                {
-                    color = XmlUI.DxDeviceYellow;
-                }
-                //------------------------------------------------------------------
-                RenderTarget2D.EndDraw();
+                    //------------------------------------------------------------------
+                    RenderTarget2D.EndDraw();
 #if !DEBUG
                 }
 #endif

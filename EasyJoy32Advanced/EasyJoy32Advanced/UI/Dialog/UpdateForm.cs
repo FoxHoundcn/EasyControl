@@ -63,16 +63,8 @@ namespace EasyControl
         }
         public void CheckUpdate(JoyObject obj, string protocol)
         {
-            string checkVersion = Localization.Instance.GetLS("ProtocolVersion") + ":" + protocol + "    " +
-                Localization.Instance.GetLS("SoftwareVersion") + ":" + Localization.Instance.GetLS("ErrorSoftwareVersion");
-            string version;
-            if (NetMQServer.GetProtocolVersion(protocol, out version))
-            {
-                checkVersion = Localization.Instance.GetLS("ProtocolVersion") + ":" + protocol + "    " +
-                   Localization.Instance.GetLS("SoftwareVersion") + ":" + version;
-            }
             updateInfo.bLocalization = false;
-            updateInfo.Text = obj.usbName + "\n" + Localization.Instance.GetLS("NeedUpdate") + "\n" + checkVersion;
+            updateInfo.Text = obj.usbName + "\n" + Localization.Instance.GetLS("NeedUpdate") + "\n" + protocol;
             updateUI.Hide = false;
             Over = false;
             updatePB.Percentage = 0f;

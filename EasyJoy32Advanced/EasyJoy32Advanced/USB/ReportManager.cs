@@ -405,6 +405,7 @@ namespace EasyControl
                                 obj.joyMaxPWM = usbReport.data[JoyConst.MaxUsbName + 20];
                                 obj.joyMaxPin = usbReport.data[JoyConst.MaxUsbName + 21];
                                 obj.SetUsbPower(usbReport.data[JoyConst.MaxUsbName + 22] != 0);
+                                obj.SetTwoKeyMode(usbReport.data[JoyConst.MaxUsbName + 23] != 0);
                                 //KB
                                 obj.SetIdleColor((ColorInfoType)usbReport.data[JoyConst.MaxUsbName + 22]);
                                 obj.SetDynamicSpeed(usbReport.data[JoyConst.MaxUsbName + 23]);
@@ -457,6 +458,7 @@ namespace EasyControl
                                         //KB
                                         obj.SetIdleColor((ColorInfoType)usbReport.data[pinBtye + 24]);
                                         obj.SetDynamicSpeed(usbReport.data[pinBtye + 25]);
+                                        obj.SetTwoKeyMode(usbReport.data[pinBtye + 26] != 0);
                                         break;
                                     case TypeSwitch.CustomSwitch:
                                         //do it

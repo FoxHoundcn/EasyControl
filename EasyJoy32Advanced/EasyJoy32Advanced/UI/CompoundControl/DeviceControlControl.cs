@@ -44,6 +44,7 @@ namespace EasyControl
         uiSwitchButton sbOutTurn;
         LayoutControl OutTurnSwitchLC;
         //----keyBoard
+        uiSwitchButton sbTwoKeyMode;
         LayoutControl keyBoardControl;
         uiKeyBoard keyBoard;
         //----keyBoardFN
@@ -231,6 +232,8 @@ namespace EasyControl
             sbOutTurn.ValueChange = OutTurnSwitch;
             OutTurnSwitchLC = XmlUI.Instance.GetLayoutControl("OutTurnSwitchLC");
             //----KeyBoard
+            sbTwoKeyMode = XmlUI.Instance.GetSwitchButton("TwoKeyMode");
+            sbTwoKeyMode.ValueChange = TwoKeyModeSwitch;
             keyBoardControl = XmlUI.Instance.GetLayoutControl("KeyBoardControl");
             keyBoard = XmlUI.Instance.GetKeyBoard("KeyBoard");
             keyBoard.KeyboardClick += OnKeyboardClick;
@@ -505,6 +508,13 @@ namespace EasyControl
             if (currentObj != null && currentDev != null)
             {
                 currentDev.outInversion = sbOutTurn.bSwitchOn;
+            }
+        }
+        private void TwoKeyModeSwitch(object sender, EventArgs e)
+        {
+            if (currentObj != null && currentDev != null)
+            {
+                currentObj.SetTwoKeyMode(sbTwoKeyMode.bSwitchOn);
             }
         }
         private void EncodeStepSwitch(object sender, EventArgs e)
@@ -1574,6 +1584,7 @@ namespace EasyControl
                         AspectRatio += 14f;
                     }
                     buttonControl.AspectRatio = AspectRatio / 22f;
+                    sbTwoKeyMode.bSwitchOn = currentObj.TwoKeyMode;
                     Button button = currentObj.GetButton(currentObj.SelectButton);
                     if (button != null)
                     {

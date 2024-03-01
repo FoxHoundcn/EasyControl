@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace EasyControl
 {
@@ -12,6 +13,8 @@ namespace EasyControl
         uiTextEditor joyPIDTE;
         uiTextLable joyVersion;
         uiTextLable joyMcuID;
+        uiTextEditor joyKeyTE;
+        uiButton joyPasteBtn;
         #endregion
         #region 外设数量
         uiTrackBar maxAdcTB;
@@ -29,15 +32,16 @@ namespace EasyControl
             #region Joy属性
             joyNameTE = XmlUI.Instance.GetTextEditor("JoyNameTE");
             joyVIDTE = XmlUI.Instance.GetTextEditor("JoyVIDTE");
-            joyPIDTE = XmlUI.Instance.GetTextEditor("joyPIDTE");
-            joyNameTE = XmlUI.Instance.GetTextEditor("JoyNameTE");
-            joyVIDTE = XmlUI.Instance.GetTextEditor("JoyVIDTE");
             joyPIDTE = XmlUI.Instance.GetTextEditor("JoyPIDTE");
             joyNameTE.TextChange += OnJoyNameTextChange;
             joyVIDTE.TextChange += OnJoyVIDTextChange;
             joyPIDTE.TextChange += OnJoyPIDTextChange;
             joyVersion = XmlUI.Instance.GetTextLable("EjoyVersion");
             joyMcuID = XmlUI.Instance.GetTextLable("ShowMucID");
+            joyKeyTE = XmlUI.Instance.GetTextEditor("ShowKey");
+            joyKeyTE.TextChange += OnJoyKeyTextChange;
+            joyPasteBtn = XmlUI.Instance.GetButton("PasteBtn");
+            joyPasteBtn.LeftButtonClick += OnPasteBtnClick;
             #endregion
             #region 外设数量
             maxAdcTB = XmlUI.Instance.GetTrackBar("maxAdcTB");
@@ -74,6 +78,29 @@ namespace EasyControl
             if (currentObj != null)
             {
                 currentObj.SetPID((ushort)value);
+            }
+        }
+        private void OnJoyKeyTextChange(object sender, EventArgs e)
+        {
+            if (currentObj != null)
+            {
+                currentObj.SetKeyText(joyKeyTE.Text);
+            }
+        }
+        private void OnPasteBtnClick(object sender, EventArgs e)
+        {
+            IDataObject iData = Clipboard.GetDataObject();
+            string key = "";
+            if (iData.GetDataPresent(DataFormats.Text))
+            {
+                key = (string)iData.GetData(DataFormats.Text);
+            }
+            if (currentObj != null)
+            {
+                if(currentObj.SetKeyText(key))
+                {
+                    joyKeyTE.Text = key;
+                }
             }
         }
         private void OnJoyMaxAdcChange(object sender, EventArgs e)

@@ -35,7 +35,7 @@ namespace EasyControl
                         string index = dev.SerialNumber.Substring(7, 1);
                         string key = dev.SerialNumber.Substring(8);
                         if (ejoy.Equals("EJoy") &&
-                            (ver.Equals("3xU") || ver.Equals("41U")))
+                            (ver.Equals("3xU") || ver.Equals("35U") || ver.Equals("41U")))
                         {
                             if (updateJoy == null)
                                 updateJoy = new UpdateObject(ver, key, dev.Product);
@@ -52,6 +52,7 @@ namespace EasyControl
                     switch (updateJoy.Version)
                     {
                         case "3xU":
+                        case "35U":
                             updateJoy.Open = true;
                             V3xUpdateForm.Instance.SelectUpdate(updateJoy);
                             break;
@@ -62,6 +63,11 @@ namespace EasyControl
                             updateJoy.StartUpdate();
                             break;
                     }
+                }
+                if (Localization.Instance.GetHideWindows())
+                {
+                    if (Dx2D.Instance.mainCache != null)
+                        Dx2D.Instance.mainCache.Hide();
                 }
                 return true;
             }
