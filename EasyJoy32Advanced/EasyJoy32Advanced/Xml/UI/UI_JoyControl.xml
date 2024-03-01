@@ -120,7 +120,7 @@
                   <!--Key-->
                   <LayoutControl _OrientationType="Horizontal" >
                     <TextLable _Text="LicenseID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
-                    <TextEditor ID="ShowKey" _Text="00000000-00000000-00000000-00000000" LayoutPlaceholder="3.3"></TextEditor>
+                    <TextLable ID="ShowKey" _Text="00000000-00000000-00000000-00000000" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False" LayoutPlaceholder="3.3"></TextLable>
                     <Button ID="PasteBtn" _Text ="PasteBtn" LayoutPlaceholder="0.7"/>
                   </LayoutControl>
                 </LayoutControl>

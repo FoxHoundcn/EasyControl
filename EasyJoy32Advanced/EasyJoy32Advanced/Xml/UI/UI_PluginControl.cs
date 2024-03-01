@@ -42,10 +42,11 @@ namespace EasyControl
         //============================================================
         public void Update()
         {
-            try
+            if (!ready) return;
+            List<InterfacePlugin> removeList = new List<InterfacePlugin>();
+            foreach (InterfacePlugin ip in pluginList.Values)
             {
-                if (!ready) return;
-                foreach (InterfacePlugin ip in pluginList.Values)
+                try
                 {
                     if (ip.Open)
                     {
@@ -54,16 +55,24 @@ namespace EasyControl
                         // ip.Updata();
                     }
                 }
-                //插件Update
-                foreach (JoyObject joyObj in JoyUSB.eJoyList.Values)
+                catch (Exception ex)
                 {
-                    UpdataHandler handler = new UpdataHandler(joyObj.Update);
-                    handler.BeginInvoke(null, null);
+                    removeList.Add(ip);
+                    DebugConstol.AddLog("Plugin Update\n" + ex.Message + ex.StackTrace, LogType.Warning);
                 }
             }
-            catch (Exception ex)
+            if (removeList.Count > 0)
             {
-                DebugConstol.AddLog("Plugin Update\n" + ex.Message + ex.StackTrace, LogType.Warning);
+                foreach (var ip in removeList)
+                {
+                    pluginList.Remove(ip.PluginID);
+                }
+            }
+            //插件Update
+            foreach (JoyObject joyObj in JoyUSB.eJoyList.Values)
+            {
+                UpdataHandler handler = new UpdataHandler(joyObj.Update);
+                handler.BeginInvoke(null, null);
             }
         }
         public void DxRenderLogic()

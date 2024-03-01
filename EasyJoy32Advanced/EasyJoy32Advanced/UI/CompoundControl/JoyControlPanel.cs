@@ -13,7 +13,7 @@ namespace EasyControl
         uiTextEditor joyPIDTE;
         uiTextLable joyVersion;
         uiTextLable joyMcuID;
-        uiTextEditor joyKeyTE;
+        uiTextLable joyKeyTE;
         uiButton joyPasteBtn;
         #endregion
         #region 外设数量
@@ -38,8 +38,7 @@ namespace EasyControl
             joyPIDTE.TextChange += OnJoyPIDTextChange;
             joyVersion = XmlUI.Instance.GetTextLable("EjoyVersion");
             joyMcuID = XmlUI.Instance.GetTextLable("ShowMucID");
-            joyKeyTE = XmlUI.Instance.GetTextEditor("ShowKey");
-            joyKeyTE.TextChange += OnJoyKeyTextChange;
+            joyKeyTE = XmlUI.Instance.GetTextLable("ShowKey");
             joyPasteBtn = XmlUI.Instance.GetButton("PasteBtn");
             joyPasteBtn.LeftButtonClick += OnPasteBtnClick;
             #endregion
@@ -80,13 +79,6 @@ namespace EasyControl
                 currentObj.SetPID((ushort)value);
             }
         }
-        private void OnJoyKeyTextChange(object sender, EventArgs e)
-        {
-            if (currentObj != null)
-            {
-                currentObj.SetKeyText(joyKeyTE.Text);
-            }
-        }
         private void OnPasteBtnClick(object sender, EventArgs e)
         {
             IDataObject iData = Clipboard.GetDataObject();
@@ -100,6 +92,10 @@ namespace EasyControl
                 if(currentObj.SetKeyText(key))
                 {
                     joyKeyTE.Text = key;
+                }
+                else
+                {
+                    WarningForm.Instance.OpenUI("LicenseFormat");
                 }
             }
         }
