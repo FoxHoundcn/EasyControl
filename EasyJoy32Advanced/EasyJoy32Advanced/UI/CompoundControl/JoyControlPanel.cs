@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EasyControl
 {
@@ -14,6 +15,7 @@ namespace EasyControl
         uiTextLable joyVersion;
         uiTextLable joyMcuID;
         uiTextLable joyKeyTE;
+        uiButton joyCopyBtn;
         uiButton joyPasteBtn;
         #endregion
         #region 外设数量
@@ -39,6 +41,8 @@ namespace EasyControl
             joyVersion = XmlUI.Instance.GetTextLable("EjoyVersion");
             joyMcuID = XmlUI.Instance.GetTextLable("ShowMucID");
             joyKeyTE = XmlUI.Instance.GetTextLable("ShowKey");
+            joyCopyBtn = XmlUI.Instance.GetButton("CopyBtn");
+            joyCopyBtn.LeftButtonClick += OnCopyBtnClick;
             joyPasteBtn = XmlUI.Instance.GetButton("PasteBtn");
             joyPasteBtn.LeftButtonClick += OnPasteBtnClick;
             #endregion
@@ -79,6 +83,10 @@ namespace EasyControl
                 currentObj.SetPID((ushort)value);
             }
         }
+        private void OnCopyBtnClick(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(joyMcuID.Text);
+        }
         private void OnPasteBtnClick(object sender, EventArgs e)
         {
             IDataObject iData = Clipboard.GetDataObject();
@@ -89,7 +97,7 @@ namespace EasyControl
             }
             if (currentObj != null)
             {
-                if(currentObj.SetKeyText(key))
+                if (currentObj.SetKeyText(key))
                 {
                     joyKeyTE.Text = key;
                 }

@@ -115,7 +115,8 @@
                   <!--McuID-->
                   <LayoutControl _OrientationType="Horizontal" >
                     <TextLable _Text="MucID" Color="1,1,1,1" Frame="True"  TextAlignment="Trailing"></TextLable>
-                    <TextLable ID="ShowMucID" _Text="000000000000000000000000" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False" LayoutPlaceholder="4"></TextLable>
+                    <TextLable ID="ShowMucID" _Text="000000000000000000000000" Color="1,1,1,1" Frame="True"  TextAlignment="Center"  Localization="False" LayoutPlaceholder="3.3"></TextLable>
+                    <Button ID="CopyBtn" _Text ="CopyBtn" LayoutPlaceholder="0.7"/>
                   </LayoutControl>
                   <!--Key-->
                   <LayoutControl _OrientationType="Horizontal" >
